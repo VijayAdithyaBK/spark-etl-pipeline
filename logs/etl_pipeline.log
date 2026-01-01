@@ -1,0 +1,798 @@
+2025-12-31 20:11:55 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2025-12-31 20:11:55 | INFO | __main__ | ============================================================
+2025-12-31 20:11:55 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2025-12-31 20:11:55 | INFO | __main__ | ============================================================
+2025-12-31 20:11:55 | INFO | __main__ | Checking for dataset...
+2025-12-31 20:11:58 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2025-12-31 20:13:18 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2025-12-31 20:13:18 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2025-12-31 20:13:18 | INFO | src.core.context_managers | Starting: spark_session
+2025-12-31 20:13:18 | INFO | src.spark.session | SparkSessionFactory initialized
+2025-12-31 20:13:18 | ERROR | src.core.context_managers | Failed: spark_session after 0.4778s - [JAVA_GATEWAY_EXITED] Java gateway process exited before sending its port number.
+2026-01-01 00:09:00 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:09:00 | INFO | __main__ | ============================================================
+2026-01-01 00:09:00 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:09:00 | INFO | __main__ | ============================================================
+2026-01-01 00:09:00 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:09:00 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:09:01 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:09:01 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:09:01 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:09:01 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:09:05 | ERROR | src.core.context_managers | Failed: spark_session after 3.6903s - An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.lang.UnsupportedOperationException: getSubject is not supported
+	at java.base/javax.security.auth.Subject.getSubject(Subject.java:277)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:577)
+	at org.apache.spark.util.Utils$.$anonfun$getCurrentUserName$1(Utils.scala:2416)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2416)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:329)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+2026-01-01 00:27:51 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:27:51 | INFO | __main__ | ============================================================
+2026-01-01 00:27:51 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:27:51 | INFO | __main__ | ============================================================
+2026-01-01 00:27:51 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:27:52 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:27:53 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:27:53 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:27:53 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:27:53 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:28:02 | ERROR | src.core.context_managers | Failed: spark_session after 8.7290s - An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.lang.UnsupportedOperationException: getSubject is not supported
+	at java.base/javax.security.auth.Subject.getSubject(Subject.java:277)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:577)
+	at org.apache.spark.util.Utils$.$anonfun$getCurrentUserName$1(Utils.scala:2416)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2416)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:329)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+2026-01-01 00:32:15 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:32:15 | INFO | __main__ | ============================================================
+2026-01-01 00:32:15 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:32:15 | INFO | __main__ | ============================================================
+2026-01-01 00:32:15 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:32:15 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:32:16 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:32:16 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:32:16 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:32:16 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:32:25 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 00:32:25 | INFO | src.core.context_managers | Completed: spark_session in 8.1341s
+2026-01-01 00:32:25 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 00:32:25 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 00:32:25 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:32:25 | ERROR | src.core.context_managers | Failed: extraction after 0.1985s - Error while instantiating 'org.apache.spark.sql.internal.SessionStateBuilder':
+
+JVM stacktrace:
+java.lang.IllegalArgumentException: Error while instantiating 'org.apache.spark.sql.internal.SessionStateBuilder':
+	at org.apache.spark.sql.SparkSession$.org$apache$spark$sql$SparkSession$$instantiateSessionState(SparkSession.scala:1322)
+	at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+	at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+	at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+	at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalArgumentException: spark.sql.shuffle.partitions should be int, but was auto
+	at org.apache.spark.internal.config.ConfigHelpers$.toNumber(ConfigBuilder.scala:35)
+	at org.apache.spark.internal.config.ConfigBuilder.$anonfun$intConf$1(ConfigBuilder.scala:232)
+	at org.apache.spark.internal.config.ConfigBuilder.$anonfun$intConf$1$adapted(ConfigBuilder.scala:232)
+	at org.apache.spark.internal.config.TypedConfigBuilder.$anonfun$transform$1(ConfigBuilder.scala:101)
+	at org.apache.spark.sql.internal.SQLConf.setConfString(SQLConf.scala:5307)
+	at org.apache.spark.sql.internal.SQLConf$.$anonfun$mergeSparkConf$1(SQLConf.scala:135)
+	at org.apache.spark.sql.internal.SQLConf$.$anonfun$mergeSparkConf$1$adapted(SQLConf.scala:134)
+	at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:36)
+	at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:198)
+	at org.apache.spark.sql.internal.SQLConf$.mergeSparkConf(SQLConf.scala:134)
+	at org.apache.spark.sql.internal.BaseSessionStateBuilder.$anonfun$conf$2(BaseSessionStateBuilder.scala:94)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.internal.BaseSessionStateBuilder.conf$lzycompute(BaseSessionStateBuilder.scala:92)
+	at org.apache.spark.sql.internal.BaseSessionStateBuilder.conf(BaseSessionStateBuilder.scala:85)
+	at org.apache.spark.sql.internal.BaseSessionStateBuilder.build(BaseSessionStateBuilder.scala:367)
+	at org.apache.spark.sql.SparkSession$.org$apache$spark$sql$SparkSession$$instantiateSessionState(SparkSession.scala:1319)
+	... 18 more
+
+2026-01-01 00:32:25 | INFO | __main__ | Spark session stopped
+2026-01-01 00:36:56 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:36:56 | INFO | __main__ | ============================================================
+2026-01-01 00:36:56 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:36:56 | INFO | __main__ | ============================================================
+2026-01-01 00:36:56 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:36:56 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:36:57 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:36:57 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:36:57 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:36:57 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:37:01 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 00:37:01 | INFO | src.core.context_managers | Completed: spark_session in 4.6612s
+2026-01-01 00:37:01 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 00:37:01 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 00:37:01 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:37:02 | ERROR | src.core.context_managers | Failed: extraction after 0.1524s - Error while instantiating 'org.apache.spark.sql.internal.SessionStateBuilder':
+
+JVM stacktrace:
+java.lang.IllegalArgumentException: Error while instantiating 'org.apache.spark.sql.internal.SessionStateBuilder':
+	at org.apache.spark.sql.SparkSession$.org$apache$spark$sql$SparkSession$$instantiateSessionState(SparkSession.scala:1322)
+	at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+	at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+	at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+	at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalArgumentException: spark.sql.shuffle.partitions should be int, but was auto
+	at org.apache.spark.internal.config.ConfigHelpers$.toNumber(ConfigBuilder.scala:35)
+	at org.apache.spark.internal.config.ConfigBuilder.$anonfun$intConf$1(ConfigBuilder.scala:232)
+	at org.apache.spark.internal.config.ConfigBuilder.$anonfun$intConf$1$adapted(ConfigBuilder.scala:232)
+	at org.apache.spark.internal.config.TypedConfigBuilder.$anonfun$transform$1(ConfigBuilder.scala:101)
+	at org.apache.spark.sql.internal.SQLConf.setConfString(SQLConf.scala:5307)
+	at org.apache.spark.sql.internal.SQLConf$.$anonfun$mergeSparkConf$1(SQLConf.scala:135)
+	at org.apache.spark.sql.internal.SQLConf$.$anonfun$mergeSparkConf$1$adapted(SQLConf.scala:134)
+	at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:36)
+	at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:198)
+	at org.apache.spark.sql.internal.SQLConf$.mergeSparkConf(SQLConf.scala:134)
+	at org.apache.spark.sql.internal.BaseSessionStateBuilder.$anonfun$conf$2(BaseSessionStateBuilder.scala:94)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.internal.BaseSessionStateBuilder.conf$lzycompute(BaseSessionStateBuilder.scala:92)
+	at org.apache.spark.sql.internal.BaseSessionStateBuilder.conf(BaseSessionStateBuilder.scala:85)
+	at org.apache.spark.sql.internal.BaseSessionStateBuilder.build(BaseSessionStateBuilder.scala:367)
+	at org.apache.spark.sql.SparkSession$.org$apache$spark$sql$SparkSession$$instantiateSessionState(SparkSession.scala:1319)
+	... 18 more
+
+2026-01-01 00:37:02 | INFO | __main__ | Spark session stopped
+2026-01-01 00:37:35 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:37:35 | INFO | __main__ | ============================================================
+2026-01-01 00:37:35 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:37:35 | INFO | __main__ | ============================================================
+2026-01-01 00:37:35 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:37:35 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:37:36 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:37:36 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:37:36 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:37:36 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:37:40 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 00:37:40 | INFO | src.core.context_managers | Completed: spark_session in 4.6840s
+2026-01-01 00:37:40 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 00:37:40 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 00:37:40 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:37:47 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-01 00:37:47 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-01 00:37:47 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-01 00:37:47 | INFO | src.core.context_managers | Completed: extraction in 7.0046s
+2026-01-01 00:37:47 | INFO | src.core.context_managers | Starting: transformation
+2026-01-01 00:37:47 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-01 00:37:47 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-01 00:37:47 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-01 00:37:47 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-01 00:37:47 | INFO | src.core.context_managers | Completed: transformation in 0.0718s
+2026-01-01 00:37:47 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-01 00:37:47 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-01 00:38:05 | INFO | __main__ | All quality checks PASSED ✓
+2026-01-01 00:38:47 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-01 00:38:47 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-01 00:38:47 | INFO | src.core.context_managers | Completed: quality_validation in 60.1837s
+2026-01-01 00:38:47 | INFO | src.core.context_managers | Starting: loading
+2026-01-01 00:38:47 | INFO | __main__ | Phase 4: LOADING
+2026-01-01 00:38:47 | INFO | src.etl.loaders | Writing Parquet to: data\processed\transactions
+2026-01-01 00:38:53 | ERROR | src.core.context_managers | Failed: loading after 5.7405s - An error occurred while calling o267.save.
+: java.lang.RuntimeException: java.io.FileNotFoundException: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset. -see https://wiki.apache.org/hadoop/WindowsProblems
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:735)
+	at org.apache.hadoop.util.Shell.getSetPermissionCommand(Shell.java:270)
+	at org.apache.hadoop.util.Shell.getSetPermissionCommand(Shell.java:286)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:978)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkOneDirWithMode(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:700)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirsWithOptionalPermission(RawLocalFileSystem.java:699)
+	at org.apache.hadoop.fs.RawLocalFileSystem.mkdirs(RawLocalFileSystem.java:672)
+	at org.apache.hadoop.fs.ChecksumFileSystem.mkdirs(ChecksumFileSystem.java:788)
+	at org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter.setupJob(FileOutputCommitter.java:356)
+	at org.apache.spark.internal.io.HadoopMapReduceCommitProtocol.setupJob(HadoopMapReduceCommitProtocol.scala:188)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:269)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:304)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:190)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:190)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:113)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:111)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:125)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.$anonfun$executeCollect$1(AdaptiveSparkPlanExec.scala:392)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.withFinalPlanUpdate(AdaptiveSparkPlanExec.scala:420)
+	at org.apache.spark.sql.execution.adaptive.AdaptiveSparkPlanExec.executeCollect(AdaptiveSparkPlanExec.scala:392)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:869)
+	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:391)
+	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:364)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:243)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.io.FileNotFoundException: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset. -see https://wiki.apache.org/hadoop/WindowsProblems
+	at org.apache.hadoop.util.Shell.fileNotFoundException(Shell.java:547)
+	at org.apache.hadoop.util.Shell.getHadoopHomeDir(Shell.java:568)
+	at org.apache.hadoop.util.Shell.getQualifiedBin(Shell.java:591)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:688)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.conf.Configuration.getTimeDurationHelper(Configuration.java:1907)
+	at org.apache.hadoop.conf.Configuration.getTimeDuration(Configuration.java:1867)
+	at org.apache.hadoop.conf.Configuration.getTimeDuration(Configuration.java:1840)
+	at org.apache.hadoop.util.ShutdownHookManager.getShutdownTimeout(ShutdownHookManager.java:183)
+	at org.apache.hadoop.util.ShutdownHookManager$HookEntry.<init>(ShutdownHookManager.java:207)
+	at org.apache.hadoop.util.ShutdownHookManager.addShutdownHook(ShutdownHookManager.java:304)
+	at org.apache.spark.util.SparkShutdownHookManager.install(ShutdownHookManager.scala:181)
+	at org.apache.spark.util.ShutdownHookManager$.shutdownHooks$lzycompute(ShutdownHookManager.scala:50)
+	at org.apache.spark.util.ShutdownHookManager$.shutdownHooks(ShutdownHookManager.scala:48)
+	at org.apache.spark.util.ShutdownHookManager$.addShutdownHook(ShutdownHookManager.scala:153)
+	at org.apache.spark.util.ShutdownHookManager$.<init>(ShutdownHookManager.scala:58)
+	at org.apache.spark.util.ShutdownHookManager$.<clinit>(ShutdownHookManager.scala)
+	at org.apache.spark.util.Utils$.createTempDir(Utils.scala:242)
+	at org.apache.spark.util.SparkFileUtils.createTempDir(SparkFileUtils.scala:103)
+	at org.apache.spark.util.SparkFileUtils.createTempDir$(SparkFileUtils.scala:102)
+	at org.apache.spark.util.Utils$.createTempDir(Utils.scala:94)
+	at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:377)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:969)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:199)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:222)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1125)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1134)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.
+	at org.apache.hadoop.util.Shell.checkHadoopHomeInner(Shell.java:467)
+	at org.apache.hadoop.util.Shell.checkHadoopHome(Shell.java:438)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:515)
+	... 25 more
+
+2026-01-01 00:38:54 | INFO | __main__ | Spark session stopped
+2026-01-01 00:49:50 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:49:50 | INFO | __main__ | ============================================================
+2026-01-01 00:49:50 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:49:50 | INFO | __main__ | ============================================================
+2026-01-01 00:49:50 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:49:50 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:49:51 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:49:51 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:49:51 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:49:51 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:49:56 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 00:49:56 | INFO | src.core.context_managers | Completed: spark_session in 4.7487s
+2026-01-01 00:49:56 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 00:49:56 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 00:49:56 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:50:02 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-01 00:50:03 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-01 00:50:03 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-01 00:50:03 | INFO | src.core.context_managers | Completed: extraction in 6.9356s
+2026-01-01 00:50:03 | INFO | src.core.context_managers | Starting: transformation
+2026-01-01 00:50:03 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-01 00:50:03 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-01 00:50:03 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-01 00:50:03 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-01 00:50:03 | INFO | src.core.context_managers | Completed: transformation in 0.0912s
+2026-01-01 00:50:03 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-01 00:50:03 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-01 00:50:17 | INFO | __main__ | All quality checks PASSED ✓
+2026-01-01 00:50:56 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-01 00:50:56 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-01 00:50:56 | INFO | src.core.context_managers | Completed: quality_validation in 53.3993s
+2026-01-01 00:50:56 | INFO | __main__ | Phase 4: RESULTS
+2026-01-01 00:50:56 | INFO | __main__ | Sample processed records:
+2026-01-01 00:51:05 | INFO | __main__ | ============================================================
+2026-01-01 00:51:05 | INFO | __main__ | TRANSACTION STATISTICS:
+2026-01-01 00:51:05 | INFO | __main__ |   Total Transactions: 555,719
+2026-01-01 00:51:05 | INFO | __main__ |   Total Amount: $38,562,903.11
+2026-01-01 00:51:05 | INFO | __main__ |   Average Amount: $69.39
+2026-01-01 00:51:05 | INFO | __main__ |   Max Amount: $22,768.11
+2026-01-01 00:51:05 | INFO | __main__ |   Min Amount: $1.00
+2026-01-01 00:51:09 | INFO | __main__ | 
+FRAUD DISTRIBUTION:
+2026-01-01 00:51:09 | INFO | __main__ |   Fraud: 2,145
+2026-01-01 00:51:09 | INFO | __main__ |   Legitimate: 553,574
+2026-01-01 00:51:09 | INFO | __main__ | ============================================================
+2026-01-01 00:51:09 | INFO | __main__ | PIPELINE COMPLETED SUCCESSFULLY ✓
+2026-01-01 00:51:09 | INFO | __main__ | ============================================================
+2026-01-01 00:51:09 | INFO | __main__ | Records processed: 555,719
+2026-01-01 00:51:09 | INFO | __main__ | Quality reports saved to: data\processed
+2026-01-01 00:51:09 | INFO | __main__ | 
+2026-01-01 00:51:09 | INFO | __main__ | NOTE: Parquet output skipped (requires winutils.exe on Windows)
+2026-01-01 00:51:09 | INFO | __main__ |       The data was successfully processed and validated!
+2026-01-01 00:51:12 | INFO | __main__ | Spark session stopped
+2026-01-01 00:51:38 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:51:38 | INFO | __main__ | ============================================================
+2026-01-01 00:51:38 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:51:38 | INFO | __main__ | ============================================================
+2026-01-01 00:51:38 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:51:38 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:51:39 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:51:39 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:51:39 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:51:39 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:51:42 | ERROR | src.core.context_managers | Failed: spark_session after 2.8489s - An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.lang.UnsupportedOperationException: getSubject is not supported
+	at java.base/javax.security.auth.Subject.getSubject(Subject.java:277)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:577)
+	at org.apache.spark.util.Utils$.$anonfun$getCurrentUserName$1(Utils.scala:2416)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2416)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:329)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+2026-01-01 00:52:22 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:52:22 | INFO | __main__ | ============================================================
+2026-01-01 00:52:22 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:52:22 | INFO | __main__ | ============================================================
+2026-01-01 00:52:22 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:52:22 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:52:23 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:52:23 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:52:23 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:52:23 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:52:25 | ERROR | src.core.context_managers | Failed: spark_session after 2.2079s - An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.lang.UnsupportedOperationException: getSubject is not supported
+	at java.base/javax.security.auth.Subject.getSubject(Subject.java:277)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:577)
+	at org.apache.spark.util.Utils$.$anonfun$getCurrentUserName$1(Utils.scala:2416)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.util.Utils$.getCurrentUserName(Utils.scala:2416)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:329)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+2026-01-01 00:55:55 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 00:55:55 | INFO | __main__ | ============================================================
+2026-01-01 00:55:55 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 00:55:55 | INFO | __main__ | ============================================================
+2026-01-01 00:55:55 | INFO | __main__ | Checking for dataset...
+2026-01-01 00:55:56 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 00:55:58 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 00:55:58 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:55:58 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 00:55:58 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 00:56:10 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 00:56:10 | INFO | src.core.context_managers | Completed: spark_session in 12.7585s
+2026-01-01 00:56:10 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 00:56:10 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 00:56:10 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 00:56:33 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-01 00:56:36 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-01 00:56:36 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-01 00:56:36 | INFO | src.core.context_managers | Completed: extraction in 25.7082s
+2026-01-01 00:56:36 | INFO | src.core.context_managers | Starting: transformation
+2026-01-01 00:56:36 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-01 00:56:36 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-01 00:56:36 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-01 00:56:36 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-01 00:56:36 | INFO | src.core.context_managers | Completed: transformation in 0.4130s
+2026-01-01 00:56:36 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-01 00:56:36 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-01 00:57:38 | INFO | __main__ | All quality checks PASSED ✓
+2026-01-01 00:59:47 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-01 00:59:47 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-01 00:59:47 | INFO | src.core.context_managers | Completed: quality_validation in 190.6877s
+2026-01-01 00:59:47 | INFO | __main__ | Phase 4: RESULTS
+2026-01-01 00:59:47 | INFO | __main__ | Sample processed records:
+2026-01-01 01:00:11 | INFO | __main__ | ============================================================
+2026-01-01 01:00:11 | INFO | __main__ | TRANSACTION STATISTICS:
+2026-01-01 01:00:11 | INFO | __main__ |   Total Transactions: 555,719
+2026-01-01 01:00:11 | INFO | __main__ |   Total Amount: $38,562,903.11
+2026-01-01 01:00:11 | INFO | __main__ |   Average Amount: $69.39
+2026-01-01 01:00:11 | INFO | __main__ |   Max Amount: $22,768.11
+2026-01-01 01:00:11 | INFO | __main__ |   Min Amount: $1.00
+2026-01-01 01:01:18 | INFO | __main__ | 
+FRAUD DISTRIBUTION:
+2026-01-01 01:01:18 | INFO | __main__ |   Fraud: 2,145
+2026-01-01 01:01:18 | INFO | __main__ |   Legitimate: 553,574
+2026-01-01 01:01:18 | INFO | __main__ | ============================================================
+2026-01-01 01:01:18 | INFO | __main__ | PIPELINE COMPLETED SUCCESSFULLY ✓
+2026-01-01 01:01:18 | INFO | __main__ | ============================================================
+2026-01-01 01:01:18 | INFO | __main__ | Records processed: 555,719
+2026-01-01 01:01:18 | INFO | __main__ | Quality reports saved to: data\processed
+2026-01-01 01:01:18 | INFO | __main__ | 
+2026-01-01 01:01:18 | INFO | __main__ | NOTE: Parquet output skipped (requires winutils.exe on Windows)
+2026-01-01 01:01:18 | INFO | __main__ |       The data was successfully processed and validated!
+2026-01-01 01:01:24 | INFO | __main__ | Spark session stopped
+2026-01-01 01:38:17 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 01:38:17 | INFO | __main__ | ============================================================
+2026-01-01 01:38:17 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 01:38:17 | INFO | __main__ | ============================================================
+2026-01-01 01:38:17 | INFO | __main__ | Checking for dataset...
+2026-01-01 01:38:17 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 01:38:18 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 01:38:18 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 01:38:18 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 01:38:18 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 01:38:22 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 01:38:22 | INFO | src.core.context_managers | Completed: spark_session in 3.7407s
+2026-01-01 01:38:22 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 01:38:22 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 01:38:22 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 01:38:28 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-01 01:38:28 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-01 01:38:28 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-01 01:38:28 | INFO | src.core.context_managers | Completed: extraction in 6.5955s
+2026-01-01 01:38:28 | INFO | src.core.context_managers | Starting: transformation
+2026-01-01 01:38:28 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-01 01:38:28 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-01 01:38:28 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-01 01:38:28 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-01 01:38:28 | INFO | src.core.context_managers | Completed: transformation in 0.0632s
+2026-01-01 01:38:28 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-01 01:38:28 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-01 01:38:43 | INFO | __main__ | All quality checks PASSED ✓
+2026-01-01 01:39:24 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-01 01:39:24 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-01 01:39:24 | INFO | src.core.context_managers | Completed: quality_validation in 55.4602s
+2026-01-01 01:39:24 | INFO | src.core.context_managers | Starting: analytics
+2026-01-01 01:39:24 | INFO | __main__ | Phase 4: FRAUD ANALYTICS
+2026-01-01 01:39:24 | INFO | src.analytics.fraud_analytics | Running comprehensive fraud analytics...
+2026-01-01 01:40:24 | INFO | src.analytics.fraud_analytics | Completed 6 analytics modules
+2026-01-01 01:40:26 | INFO | src.analytics.reports | Saved analytics JSON report to data\processed\analytics_report.json
+2026-01-01 01:40:26 | INFO | src.analytics.reports | Saved analytics HTML report to data\processed\analytics_report.html
+2026-01-01 01:40:26 | INFO | __main__ | Analytics reports generated ✓
+2026-01-01 01:40:26 | INFO | __main__ | Key Finding: Detected 2,145 fraudulent transactions (0.39%) totaling $1,133,324.68
+2026-01-01 01:40:26 | INFO | __main__ |   ⚠️ Fraudulent transactions avg $528.36 - 7.8x higher than legitimate
+2026-01-01 01:40:26 | INFO | src.core.context_managers | Completed: analytics in 62.0905s
+2026-01-01 01:40:26 | INFO | __main__ | Phase 5: RESULTS
+2026-01-01 01:40:26 | INFO | __main__ | Sample processed records:
+2026-01-01 01:40:34 | INFO | __main__ | ============================================================
+2026-01-01 01:40:34 | INFO | __main__ | TRANSACTION STATISTICS:
+2026-01-01 01:40:34 | INFO | __main__ |   Total Transactions: 555,719
+2026-01-01 01:40:34 | INFO | __main__ |   Total Amount: $38,562,903.11
+2026-01-01 01:40:34 | INFO | __main__ |   Average Amount: $69.39
+2026-01-01 01:40:34 | INFO | __main__ |   Max Amount: $22,768.11
+2026-01-01 01:40:34 | INFO | __main__ |   Min Amount: $1.00
+2026-01-01 01:40:41 | INFO | __main__ | 
+FRAUD DISTRIBUTION:
+2026-01-01 01:40:41 | INFO | __main__ |   Fraud: 2,145
+2026-01-01 01:40:41 | INFO | __main__ |   Legitimate: 553,574
+2026-01-01 01:40:41 | INFO | __main__ | ============================================================
+2026-01-01 01:40:41 | INFO | __main__ | PIPELINE COMPLETED SUCCESSFULLY ✓
+2026-01-01 01:40:42 | INFO | __main__ | ============================================================
+2026-01-01 01:40:42 | INFO | __main__ | Records processed: 555,719
+2026-01-01 01:40:42 | INFO | __main__ | Quality reports saved to: data\processed
+2026-01-01 01:40:42 | INFO | __main__ | Analytics reports saved to: data\processed
+2026-01-01 01:40:42 | INFO | __main__ | 
+2026-01-01 01:40:42 | INFO | __main__ | View analytics_report.html for detailed fraud insights!
+2026-01-01 01:40:42 | INFO | __main__ | NOTE: Parquet output skipped (requires winutils.exe on Windows)
+2026-01-01 01:40:42 | INFO | __main__ |       The data was successfully processed and validated!
+2026-01-01 01:40:43 | INFO | __main__ | Spark session stopped
+2026-01-01 10:20:08 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 10:20:08 | INFO | __main__ | ============================================================
+2026-01-01 10:20:08 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 10:20:08 | INFO | __main__ | ============================================================
+2026-01-01 10:20:08 | INFO | __main__ | Checking for dataset...
+2026-01-01 10:20:09 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 10:20:10 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 10:20:10 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 10:20:10 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 10:20:10 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 10:20:20 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 10:20:20 | INFO | src.core.context_managers | Completed: spark_session in 10.3635s
+2026-01-01 10:20:20 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 10:20:20 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 10:20:20 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 10:20:36 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-01 10:20:37 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-01 10:20:37 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-01 10:20:37 | INFO | src.core.context_managers | Completed: extraction in 16.9708s
+2026-01-01 10:20:37 | INFO | src.core.context_managers | Starting: transformation
+2026-01-01 10:20:37 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-01 10:20:37 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-01 10:20:37 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-01 10:20:37 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-01 10:20:37 | INFO | src.core.context_managers | Completed: transformation in 0.4415s
+2026-01-01 10:20:37 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-01 10:20:37 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-01 10:21:26 | INFO | __main__ | All quality checks PASSED ✓
+2026-01-01 10:25:17 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-01 10:25:17 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-01 10:25:17 | INFO | src.core.context_managers | Completed: quality_validation in 279.9343s
+2026-01-01 10:25:17 | INFO | src.core.context_managers | Starting: analytics
+2026-01-01 10:25:17 | INFO | __main__ | Phase 4: FRAUD ANALYTICS
+2026-01-01 10:25:17 | INFO | src.analytics.fraud_analytics | Running comprehensive fraud analytics...
+2026-01-01 10:25:46 | ERROR | src.core.context_managers | Failed: analytics after 28.8886s - An error occurred while calling o266.count
+2026-01-01 10:39:06 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 10:39:06 | INFO | __main__ | ============================================================
+2026-01-01 10:39:06 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 10:39:06 | INFO | __main__ | ============================================================
+2026-01-01 10:39:06 | INFO | __main__ | Checking for dataset...
+2026-01-01 10:39:06 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 10:39:07 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 10:39:07 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 10:39:07 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 10:39:07 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 10:39:11 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 10:39:11 | INFO | src.core.context_managers | Completed: spark_session in 4.2999s
+2026-01-01 10:39:11 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 10:39:11 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 10:39:11 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 10:39:18 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-01 10:39:18 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-01 10:39:18 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-01 10:39:18 | INFO | src.core.context_managers | Completed: extraction in 7.1075s
+2026-01-01 10:39:18 | INFO | src.core.context_managers | Starting: transformation
+2026-01-01 10:39:18 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-01 10:39:18 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-01 10:39:18 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-01 10:39:18 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-01 10:39:18 | INFO | src.core.context_managers | Completed: transformation in 0.0736s
+2026-01-01 10:39:18 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-01 10:39:18 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-01 10:39:35 | INFO | __main__ | All quality checks PASSED ✓
+2026-01-01 10:40:14 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-01 10:40:14 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-01 10:40:14 | INFO | src.core.context_managers | Completed: quality_validation in 55.5909s
+2026-01-01 10:40:14 | INFO | src.core.context_managers | Starting: analytics
+2026-01-01 10:40:14 | INFO | __main__ | Phase 4: FRAUD ANALYTICS
+2026-01-01 10:40:14 | INFO | src.analytics.fraud_analytics | Running comprehensive fraud analytics...
+2026-01-01 10:41:17 | INFO | src.analytics.fraud_analytics | Completed 6 analytics modules
+2026-01-01 10:41:17 | INFO | src.analytics.reports | Saved analytics JSON report to data\processed\analytics_report.json
+2026-01-01 10:41:17 | INFO | src.analytics.reports | Saved analytics HTML report to data\processed\analytics_report.html
+2026-01-01 10:41:17 | INFO | __main__ | Analytics reports generated ✓
+2026-01-01 10:41:17 | INFO | __main__ | Key Finding: Detected 2,145 fraudulent transactions (0.39%) totaling $1,133,324.68
+2026-01-01 10:41:17 | INFO | __main__ |   ⚠️ Fraudulent transactions avg $528.36 - 7.8x higher than legitimate
+2026-01-01 10:41:17 | INFO | src.core.context_managers | Completed: analytics in 63.2615s
+2026-01-01 10:41:17 | INFO | __main__ | Phase 5: RESULTS
+2026-01-01 10:41:17 | INFO | __main__ | Sample processed records:
+2026-01-01 10:41:28 | INFO | __main__ | ============================================================
+2026-01-01 10:41:28 | INFO | __main__ | TRANSACTION STATISTICS:
+2026-01-01 10:41:28 | INFO | __main__ |   Total Transactions: 555,719
+2026-01-01 10:41:28 | INFO | __main__ |   Total Amount: $38,562,903.11
+2026-01-01 10:41:28 | INFO | __main__ |   Average Amount: $69.39
+2026-01-01 10:41:28 | INFO | __main__ |   Max Amount: $22,768.11
+2026-01-01 10:41:28 | INFO | __main__ |   Min Amount: $1.00
+2026-01-01 10:41:36 | INFO | __main__ | 
+FRAUD DISTRIBUTION:
+2026-01-01 10:41:36 | INFO | __main__ |   Fraud: 2,145
+2026-01-01 10:41:36 | INFO | __main__ |   Legitimate: 553,574
+2026-01-01 10:41:36 | INFO | __main__ | ============================================================
+2026-01-01 10:41:36 | INFO | __main__ | PIPELINE COMPLETED SUCCESSFULLY ✓
+2026-01-01 10:41:36 | INFO | __main__ | ============================================================
+2026-01-01 10:41:36 | INFO | __main__ | Records processed: 555,719
+2026-01-01 10:41:36 | INFO | __main__ | Quality reports saved to: data\processed
+2026-01-01 10:41:36 | INFO | __main__ | Analytics reports saved to: data\processed
+2026-01-01 10:41:36 | INFO | __main__ | 
+2026-01-01 10:41:36 | INFO | __main__ | View analytics_report.html for detailed fraud insights!
+2026-01-01 10:41:36 | INFO | __main__ | NOTE: Parquet output skipped (requires winutils.exe on Windows)
+2026-01-01 10:41:36 | INFO | __main__ |       The data was successfully processed and validated!
+2026-01-01 10:41:39 | INFO | __main__ | Spark session stopped
+2026-01-01 10:52:40 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 10:52:40 | INFO | __main__ | ============================================================
+2026-01-01 10:52:40 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 10:52:40 | INFO | __main__ | ============================================================
+2026-01-01 10:52:40 | INFO | __main__ | Checking for dataset...
+2026-01-01 10:52:40 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 10:52:41 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 10:52:41 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 10:52:41 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 10:52:41 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 10:52:46 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 10:52:46 | INFO | src.core.context_managers | Completed: spark_session in 4.8405s
+2026-01-01 10:52:46 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 10:52:46 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 10:52:46 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 10:52:54 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-01 10:52:55 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-01 10:52:55 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-01 10:52:55 | INFO | src.core.context_managers | Completed: extraction in 9.0793s
+2026-01-01 10:52:55 | INFO | src.core.context_managers | Starting: transformation
+2026-01-01 10:52:55 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-01 10:52:55 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-01 10:52:55 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-01 10:52:55 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-01 10:52:55 | INFO | src.core.context_managers | Completed: transformation in 0.1065s
+2026-01-01 10:52:55 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-01 10:52:55 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-01 10:53:48 | INFO | __main__ | All quality checks PASSED ✓
+2026-01-01 10:57:36 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-01 10:57:36 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-01 10:57:36 | INFO | src.core.context_managers | Completed: quality_validation in 280.8877s
+2026-01-01 10:57:36 | INFO | src.core.context_managers | Starting: analytics
+2026-01-01 10:57:36 | INFO | __main__ | Phase 4: FRAUD ANALYTICS
+2026-01-01 10:57:36 | INFO | src.analytics.fraud_analytics | Running comprehensive fraud analytics...
+2026-01-01 11:01:23 | INFO | src.analytics.fraud_analytics | Completed 6 analytics modules
+2026-01-01 11:01:23 | INFO | src.analytics.reports | Saved analytics JSON report to data\processed\analytics_report.json
+2026-01-01 11:01:23 | INFO | src.analytics.reports | Saved analytics HTML report to data\processed\analytics_report.html
+2026-01-01 11:01:23 | INFO | __main__ | Analytics reports generated ✓
+2026-01-01 11:01:23 | INFO | __main__ | Key Finding: Detected 2,145 fraudulent transactions (0.39%) totaling $1,133,324.68
+2026-01-01 11:01:23 | INFO | __main__ |   ⚠️ Fraudulent transactions avg $528.36 - 7.8x higher than legitimate
+2026-01-01 11:01:23 | INFO | src.core.context_managers | Completed: analytics in 227.1383s
+2026-01-01 11:01:23 | INFO | __main__ | Phase 5: RESULTS
+2026-01-01 11:01:23 | INFO | __main__ | Sample processed records:
+2026-01-01 11:02:09 | INFO | __main__ | ============================================================
+2026-01-01 11:02:09 | INFO | __main__ | TRANSACTION STATISTICS:
+2026-01-01 11:02:09 | INFO | __main__ |   Total Transactions: 555,719
+2026-01-01 11:02:09 | INFO | __main__ |   Total Amount: $38,562,903.11
+2026-01-01 11:02:09 | INFO | __main__ |   Average Amount: $69.39
+2026-01-01 11:02:09 | INFO | __main__ |   Max Amount: $22,768.11
+2026-01-01 11:02:09 | INFO | __main__ |   Min Amount: $1.00
+2026-01-01 11:02:29 | INFO | __main__ | 
+FRAUD DISTRIBUTION:
+2026-01-01 11:02:29 | INFO | __main__ |   Fraud: 2,145
+2026-01-01 11:02:29 | INFO | __main__ |   Legitimate: 553,574
+2026-01-01 11:02:29 | INFO | __main__ | ============================================================
+2026-01-01 11:02:29 | INFO | __main__ | PIPELINE COMPLETED SUCCESSFULLY ✓
+2026-01-01 11:02:30 | INFO | __main__ | ============================================================
+2026-01-01 11:02:30 | INFO | __main__ | Records processed: 555,719
+2026-01-01 11:02:30 | INFO | __main__ | Quality reports saved to: data\processed
+2026-01-01 11:02:30 | INFO | __main__ | Analytics reports saved to: data\processed
+2026-01-01 11:02:30 | INFO | __main__ | 
+2026-01-01 11:02:30 | INFO | __main__ | View analytics_report.html for detailed fraud insights!
+2026-01-01 11:02:30 | INFO | __main__ | NOTE: Parquet output skipped (requires winutils.exe on Windows)
+2026-01-01 11:02:30 | INFO | __main__ |       The data was successfully processed and validated!
+2026-01-01 11:02:31 | INFO | __main__ | Spark session stopped
+2026-01-01 17:29:08 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-01 17:29:08 | INFO | __main__ | ============================================================
+2026-01-01 17:29:08 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-01 17:29:08 | INFO | __main__ | ============================================================
+2026-01-01 17:29:08 | INFO | __main__ | Checking for dataset...
+2026-01-01 17:29:08 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-01 17:29:13 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-01 17:29:13 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 17:29:13 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-01 17:29:13 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-01 17:29:20 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-01 17:29:20 | INFO | src.core.context_managers | Completed: spark_session in 7.7882s
+2026-01-01 17:29:20 | INFO | src.core.context_managers | Starting: extraction
+2026-01-01 17:29:20 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-01 17:29:20 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-01 17:29:28 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-01 17:29:29 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-01 17:29:29 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-01 17:29:29 | INFO | src.core.context_managers | Completed: extraction in 8.0895s
+2026-01-01 17:29:29 | INFO | src.core.context_managers | Starting: transformation
+2026-01-01 17:29:29 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-01 17:29:29 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-01 17:29:29 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-01 17:29:29 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-01 17:29:29 | INFO | src.core.context_managers | Completed: transformation in 0.0735s
+2026-01-01 17:29:29 | INFO | src.core.context_managers | Starting: feature_engineering
+2026-01-01 17:29:29 | INFO | __main__ | Phase 2.5: FEATURE ENGINEERING
+2026-01-01 17:29:29 | INFO | src.features.engineering | Starting feature engineering...
+2026-01-01 17:29:29 | INFO | src.features.engineering | Adding time features...
+2026-01-01 17:29:29 | INFO | src.features.engineering | Adding amount features...
+2026-01-01 17:29:34 | INFO | src.features.engineering | Adding velocity features...
+2026-01-01 17:29:35 | INFO | src.features.engineering | Adding merchant risk features...
+2026-01-01 17:29:35 | INFO | src.features.engineering | Feature engineering complete. Added 26 features.
+2026-01-01 17:29:35 | INFO | __main__ | Added 26 engineered features
+2026-01-01 17:29:35 | INFO | src.core.context_managers | Completed: feature_engineering in 6.3818s
+2026-01-01 17:29:35 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-01 17:29:35 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-01 17:30:06 | WARNING | __main__ | Some quality checks FAILED ✗
+2026-01-01 17:32:51 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-01 17:32:51 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-01 17:32:51 | INFO | src.core.context_managers | Completed: quality_validation in 196.3216s
+2026-01-01 17:32:51 | INFO | src.core.context_managers | Starting: analytics
+2026-01-01 17:32:51 | INFO | __main__ | Phase 4: FRAUD ANALYTICS
+2026-01-01 17:32:51 | INFO | src.analytics.fraud_analytics | Running comprehensive fraud analytics...
+2026-01-01 17:38:29 | INFO | src.analytics.fraud_analytics | Completed 6 analytics modules
+2026-01-01 17:38:29 | INFO | src.analytics.reports | Saved analytics JSON report to data\processed\analytics_report.json
+2026-01-01 17:38:29 | INFO | src.analytics.reports | Saved analytics HTML report to data\processed\analytics_report.html
+2026-01-01 17:38:29 | INFO | __main__ | Analytics reports generated ✓
+2026-01-01 17:38:29 | INFO | __main__ | Key Finding: Detected 2,145 fraudulent transactions (0.39%) totaling $1,133,324.68
+2026-01-01 17:38:29 | INFO | __main__ |   ⚠️ Fraudulent transactions avg $528.36 - 7.8x higher than legitimate
+2026-01-01 17:38:29 | INFO | src.core.context_managers | Completed: analytics in 338.1283s
+2026-01-01 17:38:29 | INFO | __main__ | Phase 5: RESULTS
+2026-01-01 17:38:30 | INFO | __main__ | Sample processed records:
+2026-01-01 17:39:20 | INFO | __main__ | ============================================================
+2026-01-01 17:39:20 | INFO | __main__ | TRANSACTION STATISTICS:
+2026-01-01 17:39:20 | INFO | __main__ |   Total Transactions: 555,719
+2026-01-01 17:39:20 | INFO | __main__ |   Total Amount: $38,562,903.11
+2026-01-01 17:39:20 | INFO | __main__ |   Average Amount: $69.39
+2026-01-01 17:39:20 | INFO | __main__ |   Max Amount: $22,768.11
+2026-01-01 17:39:20 | INFO | __main__ |   Min Amount: $1.00
+2026-01-01 17:39:43 | INFO | __main__ | 
+FRAUD DISTRIBUTION:
+2026-01-01 17:39:43 | INFO | __main__ |   Fraud: 2,145
+2026-01-01 17:39:43 | INFO | __main__ |   Legitimate: 553,574
+2026-01-01 17:39:43 | INFO | __main__ | ============================================================
+2026-01-01 17:39:43 | INFO | __main__ | PIPELINE COMPLETED SUCCESSFULLY ✓
+2026-01-01 17:39:43 | INFO | __main__ | ============================================================
+2026-01-01 17:39:43 | INFO | __main__ | Records processed: 555,719
+2026-01-01 17:39:43 | INFO | __main__ | Quality reports saved to: data\processed
+2026-01-01 17:39:43 | INFO | __main__ | Analytics reports saved to: data\processed
+2026-01-01 17:39:43 | INFO | __main__ | 
+2026-01-01 17:39:43 | INFO | __main__ | View analytics_report.html for detailed fraud insights!
+2026-01-01 17:39:43 | INFO | __main__ | NOTE: Parquet output skipped (requires winutils.exe on Windows)
+2026-01-01 17:39:43 | INFO | __main__ |       The data was successfully processed and validated!
+2026-01-01 17:39:47 | INFO | __main__ | Spark session stopped

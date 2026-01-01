@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quality Report: fraud_detection_report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #333; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .passed { color: green; } .failed { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Data Quality Report: fraud_detection_report</h1>
+    <p>Generated: 2026-01-01T17:30:11.688514</p>
+    <h2>Summary</h2>
+    <table>
+        <tr><th>Metric</th><th>Value</th></tr>
+        <tr><td>Row Count</td><td>555719</td></tr>
+        <tr><td>Column Count</td><td>49</td></tr>
+    </table>
+    <h2>Column Statistics</h2>
+    <table>
+        <tr><th>Column</th><th>Type</th><th>Details</th></tr>
+        <tr><td>merchant</td><td>string</td><td>{'dtype': 'string', 'distinct_count': 693}</td></tr><tr><td>_c0</td><td>int</td><td>{'dtype': 'int', 'min': 0, 'max': 555718, 'avg': 277859.0, 'stddev': 160422.4}</td></tr><tr><td>trans_date_trans_time</td><td>timestamp</td><td>{'dtype': 'timestamp'}</td></tr><tr><td>cc_num</td><td>bigint</td><td>{'dtype': 'bigint', 'min': 60416207185, 'max': 4992346398065154184, 'avg': 4.1783869552877856e+17, 'stddev': 1.309836622980612e+18}</td></tr><tr><td>category</td><td>string</td><td>{'dtype': 'string', 'distinct_count': 14}</td></tr><tr><td>amt</td><td>double</td><td>{'dtype': 'double', 'min': 1.0, 'max': 22768.11, 'avg': 69.39, 'stddev': 156.75}</td></tr><tr><td>first</td><td>string</td><td>{'dtype': 'string', 'distinct_count': 341}</td></tr><tr><td>last</td><td>string</td><td>{'dtype': 'string', 'distinct_count': 471}</td></tr><tr><td>gender</td><td>string</td><td>{'dtype': 'string', 'distinct_count': 2}</td></tr><tr><td>street</td><td>string</td><td>{'dtype': 'string', 'distinct_count': 924}</td></tr>
+    </table>
+</body>
+</html>

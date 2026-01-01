@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Analysis Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --danger: #dc2626;
+            --warning: #d97706;
+            --success: #059669;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+        
+        /* Header */
+        header {
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 24px;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        header .meta {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        
+        /* Sections */
+        section {
+            margin-bottom: 48px;
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        /* Metric Grid */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+        
+        .metric {
+            background: var(--bg);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .metric-value.danger { color: var(--danger); }
+        .metric-value.warning { color: var(--warning); }
+        .metric-value.success { color: var(--success); }
+        
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+        
+        th {
+            text-align: left;
+            padding: 10px 12px;
+            background: var(--bg-alt);
+            border-bottom: 2px solid var(--border);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--text-muted);
+        }
+        
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            font-variant-numeric: tabular-nums;
+        }
+        
+        tr:hover td {
+            background: var(--bg-alt);
+        }
+        
+        .text-right { text-align: right; }
+        .text-danger { color: var(--danger); }
+        .text-warning { color: var(--warning); }
+        .text-success { color: var(--success); }
+        .font-medium { font-weight: 500; }
+        
+        /* Inline bar */
+        .bar-cell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .inline-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            width: 80px;
+            overflow: hidden;
+        }
+        
+        .inline-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+        
+        .inline-bar-fill.danger { background: var(--danger); }
+        .inline-bar-fill.warning { background: var(--warning); }
+        .inline-bar-fill.success { background: var(--success); }
+        
+        /* Tag */
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .tag-high { background: #fee2e2; color: #991b1b; }
+        .tag-medium { background: #fef3c7; color: #92400e; }
+        .tag-low { background: #d1fae5; color: #065f46; }
+        
+        /* Charts */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .chart-box {
+            border: 1px solid var(--border);
+            padding: 20px;
+        }
+        
+        .chart-box h3 {
+            margin-bottom: 16px;
+        }
+        
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+        
+        /* Summary box */
+        .summary-box {
+            background: var(--bg-alt);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            margin-bottom: 24px;
+        }
+        
+        .summary-box p {
+            margin: 0;
+        }
+        
+        /* Findings list */
+        .findings {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .findings li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .findings li:last-child {
+            border-bottom: none;
+        }
+        
+        .finding-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+        
+        .finding-icon.high { background: #fee2e2; color: #991b1b; }
+        .finding-icon.medium { background: #fef3c7; color: #92400e; }
+        
+        /* Footer */
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .metrics { grid-template-columns: repeat(2, 1fr); }
+            .chart-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fraud Detection Analysis Report</h1>
+            <p class="meta">
+                Dataset: Credit Card Transactions &nbsp;|&nbsp; 
+                n = 555,719 &nbsp;|&nbsp; 
+                Generated: 2026-01-01 17:38
+            </p>
+        </header>
+        
+        <!-- Executive Summary -->
+        <section>
+            <h2>1. Executive Summary</h2>
+            <div class="summary-box">
+                <p>
+                    Analysis of 555,719 transactions identified <strong>2,145 fraudulent cases</strong> 
+                    (0.39% fraud rate), representing <strong>$1,133,324.68</strong> in potential losses. 
+                    Mean fraudulent transaction value ($528.36) is 7.8x higher than 
+                    legitimate transactions ($67.61).
+                </p>
+            </div>
+            
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">555,719</div>
+                    <div class="metric-label">Total Transactions</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value danger">2,145</div>
+                    <div class="metric-label">Fraud Cases</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value danger">0.39%</div>
+                    <div class="metric-label">Fraud Rate</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value warning">$1,133,325</div>
+                    <div class="metric-label">Amount at Risk</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Category Analysis -->
+        <section>
+            <h2>2. Fraud Distribution by Category</h2>
+            <div class="chart-grid">
+                <div class="chart-box">
+                    <h3>Fraud Rate (%)</h3>
+                    <div class="chart-container">
+                        <canvas id="categoryRateChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <h3>Fraud Amount ($)</h3>
+                    <div class="chart-container">
+                        <canvas id="categoryAmountChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th class="text-right">Transactions</th>
+                        <th class="text-right">Fraud Count</th>
+                        <th class="text-right">Fraud Rate</th>
+                        <th class="text-right">Fraud Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="font-medium">shopping_net</td>
+                        <td class="text-right">41,779</td>
+                        <td class="text-right">506</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="text-danger">1.21%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill danger" 
+                                         style="width: 60.55500000000001%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$503,123.93</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">misc_net</td>
+                        <td class="text-right">27,367</td>
+                        <td class="text-right">267</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="text-warning">0.98%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill warning" 
+                                         style="width: 48.78%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$214,742.95</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">grocery_pos</td>
+                        <td class="text-right">52,553</td>
+                        <td class="text-right">485</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="text-warning">0.92%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill warning" 
+                                         style="width: 46.145%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$151,866.72</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">shopping_pos</td>
+                        <td class="text-right">49,791</td>
+                        <td class="text-right">213</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.43%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 21.39%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$188,887.25</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">gas_transport</td>
+                        <td class="text-right">56,370</td>
+                        <td class="text-right">154</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.27%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 13.66%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$1,848.42</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">travel</td>
+                        <td class="text-right">17,449</td>
+                        <td class="text-right">40</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.23%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 11.459999999999999%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$347.98</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">grocery_net</td>
+                        <td class="text-right">19,426</td>
+                        <td class="text-right">41</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.21%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 10.555%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$478.39</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">misc_pos</td>
+                        <td class="text-right">34,574</td>
+                        <td class="text-right">72</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.21%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 10.41%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$13,923.82</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">personal_care</td>
+                        <td class="text-right">39,327</td>
+                        <td class="text-right">70</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.18%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 8.9%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$1,814.44</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">entertainment</td>
+                        <td class="text-right">40,104</td>
+                        <td class="text-right">59</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.15%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 7.355%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$30,076.17</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">health_fitness</td>
+                        <td class="text-right">36,674</td>
+                        <td class="text-right">52</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.14%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 7.090000000000001%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$1,058.32</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">food_dining</td>
+                        <td class="text-right">39,268</td>
+                        <td class="text-right">54</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.14%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 6.875000000000001%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$6,607.54</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">kids_pets</td>
+                        <td class="text-right">48,692</td>
+                        <td class="text-right">65</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.13%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 6.675000000000001%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$1,288.45</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">home</td>
+                        <td class="text-right">52,345</td>
+                        <td class="text-right">67</td>
+                        <td class="text-right">
+                            <div class="bar-cell" style="justify-content: flex-end;">
+                                <span class="">0.13%</span>
+                                <div class="inline-bar">
+                                    <div class="inline-bar-fill success" 
+                                         style="width: 6.4%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">$17,260.30</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Temporal Analysis -->
+        <section>
+            <h2>3. Temporal Patterns</h2>
+            <div class="chart-grid">
+                <div class="chart-box">
+                    <h3>Hourly Fraud Rate</h3>
+                    <div class="chart-container">
+                        <canvas id="hourlyChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <h3>Daily Fraud Rate</h3>
+                    <div class="chart-container">
+                        <canvas id="dailyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Risk Patterns -->
+        <section>
+            <h2>4. Transaction Risk Patterns</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pattern</th>
+                        <th>Threshold</th>
+                        <th class="text-right">Sample Size</th>
+                        <th class="text-right">Fraud Cases</th>
+                        <th class="text-right">Fraud Rate</th>
+                        <th>Risk Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="font-medium">High-Value Transactions</td>
+                        <td>>$382.88</td>
+                        <td class="text-right">9,039</td>
+                        <td class="text-right">1,064</td>
+                        <td class="text-right text-danger">11.77%</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">Low-Value Transactions (Card Testing)</td>
+                        <td><$5.00</td>
+                        <td class="text-right">70,028</td>
+                        <td class="text-right">5</td>
+                        <td class="text-right ">0.01%</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">Round Amount Transactions</td>
+                        <td>Divisible by $100</td>
+                        <td class="text-right">22</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right ">0.00%</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Anomaly Detection -->
+        <section>
+            <h2>5. Anomaly Detection</h2>
+            <div class="summary-box">
+                <p>
+                    Using Z-score threshold of 3 (transactions &gt; $539.63), 
+                    identified <strong>5,115 anomalous transactions</strong>. 
+                    Of these, <strong>1,025 (20.0%)</strong> 
+                    were confirmed fraud cases.
+                </p>
+            </div>
+            
+            <div class="metrics" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="metric">
+                    <div class="metric-value">5,115</div>
+                    <div class="metric-label">Anomalies Detected</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value danger">1,025</div>
+                    <div class="metric-label">Confirmed Fraud</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value warning">$540</div>
+                    <div class="metric-label">Alert Threshold</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- High Risk Merchants -->
+        <section>
+            <h2>6. High-Risk Merchants</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Merchant</th>
+                        <th class="text-right">Transactions</th>
+                        <th class="text-right">Fraud Cases</th>
+                        <th class="text-right">Fraud Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Romaguera, Cruickshank and Greenholt</td>
+                        <td class="text-right">828</td>
+                        <td class="text-right text-danger">18</td>
+                        <td class="text-right text-danger">2.17%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Lemke-Gutmann</td>
+                        <td class="text-right">837</td>
+                        <td class="text-right text-danger">18</td>
+                        <td class="text-right text-danger">2.15%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Mosciski, Ziemann and Farrell</td>
+                        <td class="text-right">870</td>
+                        <td class="text-right text-danger">18</td>
+                        <td class="text-right text-danger">2.07%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Heathcote, Yost and Kertzmann</td>
+                        <td class="text-right">830</td>
+                        <td class="text-right text-danger">17</td>
+                        <td class="text-right text-danger">2.05%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Rodriguez, Yost and Jenkins</td>
+                        <td class="text-right">501</td>
+                        <td class="text-right text-danger">10</td>
+                        <td class="text-right text-danger">2.00%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Medhurst PLC</td>
+                        <td class="text-right">772</td>
+                        <td class="text-right text-danger">15</td>
+                        <td class="text-right text-danger">1.94%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Bashirian Group</td>
+                        <td class="text-right">790</td>
+                        <td class="text-right text-danger">15</td>
+                        <td class="text-right text-danger">1.90%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Kris-Weimann</td>
+                        <td class="text-right">528</td>
+                        <td class="text-right text-danger">10</td>
+                        <td class="text-right text-danger">1.89%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Heathcote LLC</td>
+                        <td class="text-right">802</td>
+                        <td class="text-right text-danger">15</td>
+                        <td class="text-right text-danger">1.87%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="font-medium">fraud_Bednar Group</td>
+                        <td class="text-right">540</td>
+                        <td class="text-right text-danger">10</td>
+                        <td class="text-right text-danger">1.85%</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Recommendations -->
+        <section>
+            <h2>7. Key Findings &amp; Recommendations</h2>
+            <ul class="findings">
+                
+                <li>
+                    <span class="finding-icon medium">!</span>
+                    <span>Fraudulent transactions avg $528.36 - 7.8x higher than legitimate</span>
+                </li>
+                
+                <li>
+                    <span class="finding-icon high">!</span>
+                    <span>Focus on 'shopping_net' category: 1.21% fraud rate, $503,123.93 at risk</span>
+                </li>
+                
+                <li>
+                    <span class="finding-icon high">!</span>
+                    <span>Focus on 'misc_net' category: 0.98% fraud rate, $214,742.95 at risk</span>
+                </li>
+                
+                <li>
+                    <span class="finding-icon high">!</span>
+                    <span>Focus on 'grocery_pos' category: 0.92% fraud rate, $151,866.72 at risk</span>
+                </li>
+                
+                <li>
+                    <span class="finding-icon high">!</span>
+                    <span>Review merchant 'fraud_Romaguera, Cruickshank and Greenho...': 18 frauds (2.17%)</span>
+                </li>
+                
+                <li>
+                    <span class="finding-icon high">!</span>
+                    <span>Review merchant 'fraud_Lemke-Gutmann...': 18 frauds (2.15%)</span>
+                </li>
+                
+                <li>
+                    <span class="finding-icon high">!</span>
+                    <span>Review merchant 'fraud_Mosciski, Ziemann and Farrell...': 18 frauds (2.07%)</span>
+                </li>
+                
+                <li>
+                    <span class="finding-icon high">!</span>
+                    <span>Review merchant 'fraud_Heathcote, Yost and Kertzmann...': 17 frauds (2.05%)</span>
+                </li>
+                
+            </ul>
+        </section>
+        
+        <footer>
+            <p>Generated by Spark ETL Pipeline - Fraud Analytics Module | 2026-01-01 17:38:29</p>
+        </footer>
+    </div>
+    
+    <script>
+        Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+        Chart.defaults.font.size = 11;
+        Chart.defaults.color = '#64748b';
+        
+        // Category Rate Chart
+        new Chart(document.getElementById('categoryRateChart'), {
+            type: 'bar',
+            data: {
+                labels: ["shopping_net", "misc_net", "grocery_pos", "shopping_pos", "gas_transport", "travel", "grocery_net", "misc_pos", "personal_care", "entertainment", "health_fitness", "food_dining", "kids_pets", "home"],
+                datasets: [{
+                    data: [1.2111, 0.9756, 0.9229, 0.4278, 0.2732, 0.2292, 0.2111, 0.2082, 0.178, 0.1471, 0.1418, 0.1375, 0.1335, 0.128],
+                    backgroundColor: '#2563eb',
+                    borderRadius: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: '#e2e8f0' }, border: { display: false } },
+                    y: { grid: { display: false }, border: { display: false } }
+                }
+            }
+        });
+        
+        // Category Amount Chart
+        new Chart(document.getElementById('categoryAmountChart'), {
+            type: 'bar',
+            data: {
+                labels: ["shopping_net", "misc_net", "grocery_pos", "shopping_pos", "gas_transport", "travel", "grocery_net", "misc_pos", "personal_care", "entertainment", "health_fitness", "food_dining", "kids_pets", "home"],
+                datasets: [{
+                    data: [503123.93, 214742.95, 151866.72, 188887.25, 1848.42, 347.98, 478.39, 13923.82, 1814.44, 30076.17, 1058.32, 6607.54, 1288.45, 17260.3],
+                    backgroundColor: '#dc2626',
+                    borderRadius: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: '#e2e8f0' }, border: { display: false } },
+                    y: { grid: { display: false }, border: { display: false } }
+                }
+            }
+        });
+        
+        // Hourly Chart
+        new Chart(document.getElementById('hourlyChart'), {
+            type: 'line',
+            data: {
+                labels: ["0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                datasets: [{
+                    data: [1.04, 0.92, 0.93, 1.07, 0.08, 0.11, 0.08, 0.09, 0.06, 0.08, 0.07, 0.09, 0.06, 0.05, 0.05, 0.07, 0.07, 0.06, 0.11, 0.09, 0.13, 0.1, 1.94, 1.87],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 2,
+                    pointBackgroundColor: '#2563eb',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, border: { display: false } },
+                    y: { grid: { color: '#e2e8f0' }, border: { display: false }, beginAtZero: true }
+                }
+            }
+        });
+        
+        // Daily Chart
+        new Chart(document.getElementById('dailyChart'), {
+            type: 'bar',
+            data: {
+                labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                datasets: [{
+                    data: [0.4, 0.26, 0.3, 0.5, 0.52, 0.47, 0.43],
+                    backgroundColor: ["#94a3b8", "#94a3b8", "#94a3b8", "#94a3b8", "#dc2626", "#94a3b8", "#94a3b8"],
+                    borderRadius: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, border: { display: false } },
+                    y: { grid: { color: '#e2e8f0' }, border: { display: false }, beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,618 @@
+{
+  "report_name": "fraud_analytics",
+  "generated_at": "2026-01-01T17:38:29.718423",
+  "sections": {
+    "executive_summary": {
+      "name": "Executive Summary",
+      "summary": "Detected 2,145 fraudulent transactions (0.39%) totaling $1,133,324.68",
+      "data": [
+        {
+          "total_transactions": 555719,
+          "fraud_transactions": 2145,
+          "legitimate_transactions": 553574,
+          "fraud_rate_percent": 0.386,
+          "total_amount": 38562903.11,
+          "fraud_amount": 1133324.68,
+          "amount_at_risk_percent": 2.94,
+          "avg_fraud_transaction": 528.36,
+          "avg_legitimate_transaction": 67.61
+        }
+      ],
+      "actionable_items": [
+        "\u26a0\ufe0f Fraudulent transactions avg $528.36 - 7.8x higher than legitimate"
+      ]
+    },
+    "fraud_by_category": {
+      "name": "Fraud by Category",
+      "summary": "Analyzed 14 categories. Highest risk: shopping_net",
+      "data": [
+        {
+          "category": "shopping_net",
+          "total_transactions": 41779,
+          "fraud_count": 506,
+          "fraud_rate_percent": 1.2111,
+          "total_amount": 3487779.99,
+          "fraud_amount": 503123.93
+        },
+        {
+          "category": "misc_net",
+          "total_transactions": 27367,
+          "fraud_count": 267,
+          "fraud_rate_percent": 0.9756,
+          "total_amount": 2151052.68,
+          "fraud_amount": 214742.95
+        },
+        {
+          "category": "grocery_pos",
+          "total_transactions": 52553,
+          "fraud_count": 485,
+          "fraud_rate_percent": 0.9229,
+          "total_amount": 6090121.59,
+          "fraud_amount": 151866.72
+        },
+        {
+          "category": "shopping_pos",
+          "total_transactions": 49791,
+          "fraud_count": 213,
+          "fraud_rate_percent": 0.4278,
+          "total_amount": 3827058.61,
+          "fraud_amount": 188887.25
+        },
+        {
+          "category": "gas_transport",
+          "total_transactions": 56370,
+          "fraud_count": 154,
+          "fraud_rate_percent": 0.2732,
+          "total_amount": 3583835.56,
+          "fraud_amount": 1848.42
+        },
+        {
+          "category": "travel",
+          "total_transactions": 17449,
+          "fraud_count": 40,
+          "fraud_rate_percent": 0.2292,
+          "total_amount": 1961087.57,
+          "fraud_amount": 347.98
+        },
+        {
+          "category": "grocery_net",
+          "total_transactions": 19426,
+          "fraud_count": 41,
+          "fraud_rate_percent": 0.2111,
+          "total_amount": 1043791.37,
+          "fraud_amount": 478.39
+        },
+        {
+          "category": "misc_pos",
+          "total_transactions": 34574,
+          "fraud_count": 72,
+          "fraud_rate_percent": 0.2082,
+          "total_amount": 2149888.97,
+          "fraud_amount": 13923.82
+        },
+        {
+          "category": "personal_care",
+          "total_transactions": 39327,
+          "fraud_count": 70,
+          "fraud_rate_percent": 0.178,
+          "total_amount": 1896860.0,
+          "fraud_amount": 1814.44
+        },
+        {
+          "category": "entertainment",
+          "total_transactions": 40104,
+          "fraud_count": 59,
+          "fraud_rate_percent": 0.1471,
+          "total_amount": 2566048.02,
+          "fraud_amount": 30076.17
+        },
+        {
+          "category": "health_fitness",
+          "total_transactions": 36674,
+          "fraud_count": 52,
+          "fraud_rate_percent": 0.1418,
+          "total_amount": 1975534.19,
+          "fraud_amount": 1058.32
+        },
+        {
+          "category": "food_dining",
+          "total_transactions": 39268,
+          "fraud_count": 54,
+          "fraud_rate_percent": 0.1375,
+          "total_amount": 1993948.08,
+          "fraud_amount": 6607.54
+        },
+        {
+          "category": "kids_pets",
+          "total_transactions": 48692,
+          "fraud_count": 65,
+          "fraud_rate_percent": 0.1335,
+          "total_amount": 2800126.59,
+          "fraud_amount": 1288.45
+        },
+        {
+          "category": "home",
+          "total_transactions": 52345,
+          "fraud_count": 67,
+          "fraud_rate_percent": 0.128,
+          "total_amount": 3035769.89,
+          "fraud_amount": 17260.3
+        }
+      ],
+      "actionable_items": [
+        "\ud83c\udfaf Focus on 'shopping_net' category: 1.21% fraud rate, $503,123.93 at risk",
+        "\ud83c\udfaf Focus on 'misc_net' category: 0.98% fraud rate, $214,742.95 at risk",
+        "\ud83c\udfaf Focus on 'grocery_pos' category: 0.92% fraud rate, $151,866.72 at risk"
+      ]
+    },
+    "fraud_by_merchant": {
+      "name": "Top 20 High-Risk Merchants",
+      "summary": "Identified 20 merchants with fraud activity",
+      "data": [
+        {
+          "merchant": "fraud_Romaguera, Cruickshank and Greenholt",
+          "total_transactions": 828,
+          "fraud_count": 18,
+          "fraud_rate_percent": 2.1739,
+          "total_amount": 81514.15
+        },
+        {
+          "merchant": "fraud_Lemke-Gutmann",
+          "total_transactions": 837,
+          "fraud_count": 18,
+          "fraud_rate_percent": 2.1505,
+          "total_amount": 83363.55
+        },
+        {
+          "merchant": "fraud_Mosciski, Ziemann and Farrell",
+          "total_transactions": 870,
+          "fraud_count": 18,
+          "fraud_rate_percent": 2.069,
+          "total_amount": 77723.26
+        },
+        {
+          "merchant": "fraud_Heathcote, Yost and Kertzmann",
+          "total_transactions": 830,
+          "fraud_count": 17,
+          "fraud_rate_percent": 2.0482,
+          "total_amount": 79814.33
+        },
+        {
+          "merchant": "fraud_Rodriguez, Yost and Jenkins",
+          "total_transactions": 501,
+          "fraud_count": 10,
+          "fraud_rate_percent": 1.996,
+          "total_amount": 36925.39
+        },
+        {
+          "merchant": "fraud_Medhurst PLC",
+          "total_transactions": 772,
+          "fraud_count": 15,
+          "fraud_rate_percent": 1.943,
+          "total_amount": 74441.99
+        },
+        {
+          "merchant": "fraud_Bashirian Group",
+          "total_transactions": 790,
+          "fraud_count": 15,
+          "fraud_rate_percent": 1.8987,
+          "total_amount": 70055.95
+        },
+        {
+          "merchant": "fraud_Kris-Weimann",
+          "total_transactions": 528,
+          "fraud_count": 10,
+          "fraud_rate_percent": 1.8939,
+          "total_amount": 44009.31
+        },
+        {
+          "merchant": "fraud_Heathcote LLC",
+          "total_transactions": 802,
+          "fraud_count": 15,
+          "fraud_rate_percent": 1.8703,
+          "total_amount": 71015.58
+        },
+        {
+          "merchant": "fraud_Bednar Group",
+          "total_transactions": 540,
+          "fraud_count": 10,
+          "fraud_rate_percent": 1.8519,
+          "total_amount": 45903.89
+        },
+        {
+          "merchant": "fraud_Klocko LLC",
+          "total_transactions": 574,
+          "fraud_count": 10,
+          "fraud_rate_percent": 1.7422,
+          "total_amount": 47454.29
+        },
+        {
+          "merchant": "fraud_Schultz, Simonis and Little",
+          "total_transactions": 989,
+          "fraud_count": 17,
+          "fraud_rate_percent": 1.7189,
+          "total_amount": 116601.09
+        },
+        {
+          "merchant": "fraud_Mante Group",
+          "total_transactions": 535,
+          "fraud_count": 9,
+          "fraud_rate_percent": 1.6822,
+          "total_amount": 49366.49
+        },
+        {
+          "merchant": "fraud_Bernier, Volkman and Hoeger",
+          "total_transactions": 535,
+          "fraud_count": 9,
+          "fraud_rate_percent": 1.6822,
+          "total_amount": 43210.84
+        },
+        {
+          "merchant": "fraud_Altenwerth, Cartwright and Koss",
+          "total_transactions": 851,
+          "fraud_count": 14,
+          "fraud_rate_percent": 1.6451,
+          "total_amount": 69317.04
+        },
+        {
+          "merchant": "fraud_Kuhic LLC",
+          "total_transactions": 857,
+          "fraud_count": 14,
+          "fraud_rate_percent": 1.6336,
+          "total_amount": 79894.9
+        },
+        {
+          "merchant": "fraud_Volkman Ltd",
+          "total_transactions": 513,
+          "fraud_count": 8,
+          "fraud_rate_percent": 1.5595,
+          "total_amount": 49405.34
+        },
+        {
+          "merchant": "fraud_Langworth, Boehm and Gulgowski",
+          "total_transactions": 848,
+          "fraud_count": 13,
+          "fraud_rate_percent": 1.533,
+          "total_amount": 64197.08
+        },
+        {
+          "merchant": "fraud_Terry-Huel",
+          "total_transactions": 868,
+          "fraud_count": 13,
+          "fraud_rate_percent": 1.4977,
+          "total_amount": 83012.2
+        },
+        {
+          "merchant": "fraud_Boyer-Reichert",
+          "total_transactions": 871,
+          "fraud_count": 13,
+          "fraud_rate_percent": 1.4925,
+          "total_amount": 80410.56
+        }
+      ],
+      "actionable_items": [
+        "\ud83c\udfea Review merchant 'fraud_Romaguera, Cruickshank and Greenho...': 18 frauds (2.17%)",
+        "\ud83c\udfea Review merchant 'fraud_Lemke-Gutmann...': 18 frauds (2.15%)",
+        "\ud83c\udfea Review merchant 'fraud_Mosciski, Ziemann and Farrell...': 18 frauds (2.07%)",
+        "\ud83c\udfea Review merchant 'fraud_Heathcote, Yost and Kertzmann...': 17 frauds (2.05%)",
+        "\ud83c\udfea Review merchant 'fraud_Rodriguez, Yost and Jenkins...': 10 frauds (2.00%)"
+      ]
+    },
+    "high_risk_patterns": {
+      "name": "High-Risk Transaction Patterns",
+      "summary": "Analyzed 3 transaction patterns",
+      "data": [
+        {
+          "pattern": "High-Value Transactions",
+          "threshold": ">$382.88",
+          "occurrences": 9039,
+          "fraud_count": 1064,
+          "fraud_rate_percent": 11.77,
+          "risk_level": "HIGH"
+        },
+        {
+          "pattern": "Low-Value Transactions (Card Testing)",
+          "threshold": "<$5.00",
+          "occurrences": 70028,
+          "fraud_count": 5,
+          "fraud_rate_percent": 0.01,
+          "risk_level": "LOW"
+        },
+        {
+          "pattern": "Round Amount Transactions",
+          "threshold": "Divisible by $100",
+          "occurrences": 22,
+          "fraud_count": 0,
+          "fraud_rate_percent": 0.0,
+          "risk_level": "LOW"
+        }
+      ],
+      "actionable_items": [
+        "\ud83d\udcca High-Value Transactions: 11.77% fraud rate - HIGH risk"
+      ]
+    },
+    "anomalies": {
+      "name": "Anomaly Detection",
+      "summary": "Detected 5,115 statistical anomalies, 1025 are fraud (20.0%)",
+      "data": [
+        {
+          "detection_method": "Z-Score > 3",
+          "mean_amount": 69.39,
+          "std_amount": 156.75,
+          "threshold_amount": 539.63,
+          "total_anomalies": 5115,
+          "fraudulent_anomalies": 1025,
+          "anomaly_fraud_rate_percent": 20.04,
+          "sample_anomalies": [
+            {
+              "amount": 1094.03,
+              "z_score": 6.54,
+              "is_fraud": 0,
+              "category": "shopping_pos"
+            },
+            {
+              "amount": 640.73,
+              "z_score": 3.64,
+              "is_fraud": 0,
+              "category": "shopping_pos"
+            },
+            {
+              "amount": 2089.03,
+              "z_score": 12.88,
+              "is_fraud": 0,
+              "category": "travel"
+            },
+            {
+              "amount": 837.54,
+              "z_score": 4.9,
+              "is_fraud": 1,
+              "category": "shopping_pos"
+            },
+            {
+              "amount": 3396.84,
+              "z_score": 21.23,
+              "is_fraud": 0,
+              "category": "shopping_net"
+            },
+            {
+              "amount": 545.75,
+              "z_score": 3.04,
+              "is_fraud": 0,
+              "category": "shopping_net"
+            },
+            {
+              "amount": 13149.15,
+              "z_score": 83.45,
+              "is_fraud": 0,
+              "category": "travel"
+            },
+            {
+              "amount": 1280.7,
+              "z_score": 7.73,
+              "is_fraud": 0,
+              "category": "shopping_pos"
+            },
+            {
+              "amount": 991.33,
+              "z_score": 5.88,
+              "is_fraud": 1,
+              "category": "shopping_net"
+            },
+            {
+              "amount": 623.55,
+              "z_score": 3.54,
+              "is_fraud": 0,
+              "category": "shopping_pos"
+            }
+          ]
+        }
+      ],
+      "actionable_items": [
+        "\ud83d\udea8 1025 anomalous transactions are fraudulent (20.0%)",
+        "\ud83d\udccc Set alert threshold at $539.63 to flag anomalies"
+      ]
+    },
+    "time_trends": {
+      "name": "Time-Based Fraud Trends",
+      "summary": "Peak fraud hour: 22:00",
+      "data": [
+        {
+          "hourly_distribution": [
+            {
+              "hour": 0,
+              "total": 18153,
+              "fraud_count": 188,
+              "fraud_rate": 1.04
+            },
+            {
+              "hour": 1,
+              "total": 18461,
+              "fraud_count": 169,
+              "fraud_rate": 0.92
+            },
+            {
+              "hour": 2,
+              "total": 18140,
+              "fraud_count": 168,
+              "fraud_rate": 0.93
+            },
+            {
+              "hour": 3,
+              "total": 18199,
+              "fraud_count": 194,
+              "fraud_rate": 1.07
+            },
+            {
+              "hour": 4,
+              "total": 18075,
+              "fraud_count": 15,
+              "fraud_rate": 0.08
+            },
+            {
+              "hour": 5,
+              "total": 17917,
+              "fraud_count": 20,
+              "fraud_rate": 0.11
+            },
+            {
+              "hour": 6,
+              "total": 18106,
+              "fraud_count": 14,
+              "fraud_rate": 0.08
+            },
+            {
+              "hour": 7,
+              "total": 18098,
+              "fraud_count": 16,
+              "fraud_rate": 0.09
+            },
+            {
+              "hour": 8,
+              "total": 17993,
+              "fraud_count": 10,
+              "fraud_rate": 0.06
+            },
+            {
+              "hour": 9,
+              "total": 18046,
+              "fraud_count": 14,
+              "fraud_rate": 0.08
+            },
+            {
+              "hour": 10,
+              "total": 18049,
+              "fraud_count": 12,
+              "fraud_rate": 0.07
+            },
+            {
+              "hour": 11,
+              "total": 18088,
+              "fraud_count": 17,
+              "fraud_rate": 0.09
+            },
+            {
+              "hour": 12,
+              "total": 28037,
+              "fraud_count": 17,
+              "fraud_rate": 0.06
+            },
+            {
+              "hour": 13,
+              "total": 28178,
+              "fraud_count": 14,
+              "fraud_rate": 0.05
+            },
+            {
+              "hour": 14,
+              "total": 28204,
+              "fraud_count": 14,
+              "fraud_rate": 0.05
+            },
+            {
+              "hour": 15,
+              "total": 28048,
+              "fraud_count": 21,
+              "fraud_rate": 0.07
+            },
+            {
+              "hour": 16,
+              "total": 28563,
+              "fraud_count": 21,
+              "fraud_rate": 0.07
+            },
+            {
+              "hour": 17,
+              "total": 28064,
+              "fraud_count": 16,
+              "fraud_rate": 0.06
+            },
+            {
+              "hour": 18,
+              "total": 28001,
+              "fraud_count": 30,
+              "fraud_rate": 0.11
+            },
+            {
+              "hour": 19,
+              "total": 27925,
+              "fraud_count": 24,
+              "fraud_rate": 0.09
+            },
+            {
+              "hour": 20,
+              "total": 27983,
+              "fraud_count": 36,
+              "fraud_rate": 0.13
+            },
+            {
+              "hour": 21,
+              "total": 28205,
+              "fraud_count": 27,
+              "fraud_rate": 0.1
+            },
+            {
+              "hour": 22,
+              "total": 28388,
+              "fraud_count": 550,
+              "fraud_rate": 1.94
+            },
+            {
+              "hour": 23,
+              "total": 28798,
+              "fraud_count": 538,
+              "fraud_rate": 1.87
+            }
+          ],
+          "daily_distribution": [
+            {
+              "day": "Sunday",
+              "total": 93098,
+              "fraud_count": 374,
+              "fraud_rate": 0.4
+            },
+            {
+              "day": "Monday",
+              "total": 115136,
+              "fraud_count": 302,
+              "fraud_rate": 0.26
+            },
+            {
+              "day": "Tuesday",
+              "total": 110113,
+              "fraud_count": 331,
+              "fraud_rate": 0.3
+            },
+            {
+              "day": "Wednesday",
+              "total": 52840,
+              "fraud_count": 266,
+              "fraud_rate": 0.5
+            },
+            {
+              "day": "Thursday",
+              "total": 59456,
+              "fraud_count": 309,
+              "fraud_rate": 0.52
+            },
+            {
+              "day": "Friday",
+              "total": 62806,
+              "fraud_count": 297,
+              "fraud_rate": 0.47
+            },
+            {
+              "day": "Saturday",
+              "total": 62270,
+              "fraud_count": 266,
+              "fraud_rate": 0.43
+            }
+          ]
+        }
+      ],
+      "actionable_items": [
+        "\ud83d\udd50 Peak fraud hours: 22:00, 23:00, 3:00 (1.94% fraud rate)",
+        "\ud83d\udcc5 High-risk days: Thursday, Wednesday"
+      ]
+    }
+  }
+}

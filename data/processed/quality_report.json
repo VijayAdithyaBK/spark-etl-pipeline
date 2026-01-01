@@ -1,0 +1,307 @@
+{
+  "report_name": "fraud_detection_report",
+  "generated_at": "2026-01-01T17:30:11.688514",
+  "summary": {
+    "row_count": 555719,
+    "column_count": 49,
+    "columns": [
+      "merchant",
+      "_c0",
+      "trans_date_trans_time",
+      "cc_num",
+      "category",
+      "amt",
+      "first",
+      "last",
+      "gender",
+      "street",
+      "city",
+      "state",
+      "zip",
+      "lat",
+      "long",
+      "city_pop",
+      "job",
+      "dob",
+      "trans_num",
+      "unix_time",
+      "merch_lat",
+      "merch_long",
+      "is_fraud",
+      "amount_category",
+      "amount_log",
+      "hour",
+      "day_of_week",
+      "day_of_month",
+      "month",
+      "is_weekend",
+      "is_night",
+      "is_business_hours",
+      "amount_zscore",
+      "amount_bucket",
+      "log_amount",
+      "is_round_amount",
+      "customer_avg_amount",
+      "customer_std_amount",
+      "amount_vs_customer_avg",
+      "customer_txn_count",
+      "customer_total_amount",
+      "txn_number",
+      "seconds_since_last_txn",
+      "is_rapid_txn",
+      "merchant_txn_count",
+      "merchant_fraud_rate",
+      "merchant_avg_amount",
+      "merchant_risk_tier",
+      "amount_vs_merchant_avg"
+    ]
+  },
+  "column_stats": {
+    "merchant": {
+      "dtype": "string",
+      "distinct_count": 693
+    },
+    "_c0": {
+      "dtype": "int",
+      "min": 0,
+      "max": 555718,
+      "avg": 277859.0,
+      "stddev": 160422.4
+    },
+    "trans_date_trans_time": {
+      "dtype": "timestamp"
+    },
+    "cc_num": {
+      "dtype": "bigint",
+      "min": 60416207185,
+      "max": 4992346398065154184,
+      "avg": 4.1783869552877856e+17,
+      "stddev": 1.309836622980612e+18
+    },
+    "category": {
+      "dtype": "string",
+      "distinct_count": 14
+    },
+    "amt": {
+      "dtype": "double",
+      "min": 1.0,
+      "max": 22768.11,
+      "avg": 69.39,
+      "stddev": 156.75
+    },
+    "first": {
+      "dtype": "string",
+      "distinct_count": 341
+    },
+    "last": {
+      "dtype": "string",
+      "distinct_count": 471
+    },
+    "gender": {
+      "dtype": "string",
+      "distinct_count": 2
+    },
+    "street": {
+      "dtype": "string",
+      "distinct_count": 924
+    }
+  },
+  "null_analysis": {
+    "merchant": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "_c0": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "trans_date_trans_time": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "cc_num": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "category": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "amt": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "first": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "last": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "gender": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "street": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "city": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "state": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "zip": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "lat": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "long": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "city_pop": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "job": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "dob": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "trans_num": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "unix_time": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "merch_lat": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "merch_long": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "is_fraud": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "amount_category": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "amount_log": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "hour": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "day_of_week": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "day_of_month": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "month": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "is_weekend": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "is_night": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "is_business_hours": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "amount_zscore": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "amount_bucket": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "log_amount": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "is_round_amount": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "customer_avg_amount": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "customer_std_amount": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "amount_vs_customer_avg": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "customer_txn_count": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "customer_total_amount": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "txn_number": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "seconds_since_last_txn": {
+      "null_count": 924,
+      "null_ratio": 0.0017
+    },
+    "is_rapid_txn": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "merchant_txn_count": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "merchant_fraud_rate": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "merchant_avg_amount": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "merchant_risk_tier": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    },
+    "amount_vs_merchant_avg": {
+      "null_count": 0,
+      "null_ratio": 0.0
+    }
+  }
+}
