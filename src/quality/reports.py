@@ -15,12 +15,12 @@ from pyspark.sql import functions as F
 
 class QualityReporter:
     """Generate data quality reports."""
-    
+
     def __init__(self, df: DataFrame, name: str = "quality_report"):
         self.df = df
         self.name = name
         self._metrics: dict = {}
-    
+
     def collect_metrics(self) -> dict:
         """Collect comprehensive quality metrics."""
         self._metrics = {
@@ -31,73 +31,81 @@ class QualityReporter:
             "null_analysis": self._collect_null_analysis(),
         }
         return self._metrics
-    
+
     def _collect_summary(self) -> dict:
         return {
             "row_count": self.df.count(),
             "column_count": len(self.df.columns),
             "columns": self.df.columns,
         }
-    
+
     def _collect_column_stats(self) -> dict:
         stats = {}
         for col in self.df.columns[:10]:  # Limit for performance
             dtype = dict(self.df.dtypes).get(col)
             col_stats = {"dtype": dtype}
-            
+
             if dtype in ("int", "bigint", "double", "float"):
                 agg_result = self.df.agg(
                     F.min(col).alias("min"),
                     F.max(col).alias("max"),
                     F.avg(col).alias("avg"),
-                    F.stddev(col).alias("stddev")
+                    F.stddev(col).alias("stddev"),
                 ).collect()[0]
-                
-                col_stats.update({
-                    "min": agg_result["min"],
-                    "max": agg_result["max"],
-                    "avg": round(agg_result["avg"], 2) if agg_result["avg"] else None,
-                    "stddev": round(agg_result["stddev"], 2) if agg_result["stddev"] else None,
-                })
+
+                col_stats.update(
+                    {
+                        "min": agg_result["min"],
+                        "max": agg_result["max"],
+                        "avg": (
+                            round(agg_result["avg"], 2) if agg_result["avg"] else None
+                        ),
+                        "stddev": (
+                            round(agg_result["stddev"], 2)
+                            if agg_result["stddev"]
+                            else None
+                        ),
+                    }
+                )
             elif dtype == "string":
                 col_stats["distinct_count"] = self.df.select(col).distinct().count()
-            
+
             stats[col] = col_stats
         return stats
-    
+
     def _collect_null_analysis(self) -> dict:
         total = self.df.count()
         null_stats = {}
-        
+
         for col in self.df.columns:
             null_count = self.df.filter(F.col(col).isNull()).count()
             null_stats[col] = {
                 "null_count": null_count,
-                "null_ratio": round(null_count / total, 4) if total > 0 else 0
+                "null_ratio": round(null_count / total, 4) if total > 0 else 0,
             }
-        
+
         return null_stats
-    
+
     def to_json(self, output_path: Optional[Path] = None) -> str:
         """Export report as JSON."""
         if not self._metrics:
             self.collect_metrics()
-        
+
         json_str = json.dumps(self._metrics, indent=2, default=str)
-        
+
         if output_path:
             Path(output_path).parent.mkdir(parents=True, exist_ok=True)
             with open(output_path, "w") as f:
                 f.write(json_str)
             logger.info(f"Saved JSON report to {output_path}")
-        
+
         return json_str
-    
+
     def to_html(self, output_path: Optional[Path] = None) -> str:
         """Export report as HTML."""
         if not self._metrics:
             self.collect_metrics()
-        
+
         html = f"""<!DOCTYPE html>
 <html>
 <head>
@@ -128,11 +136,11 @@ class QualityReporter:
     </table>
 </body>
 </html>"""
-        
+
         if output_path:
             Path(output_path).parent.mkdir(parents=True, exist_ok=True)
             with open(output_path, "w") as f:
                 f.write(html)
             logger.info(f"Saved HTML report to {output_path}")
-        
+
         return html

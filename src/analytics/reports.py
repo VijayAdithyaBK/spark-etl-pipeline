@@ -15,66 +15,76 @@ from src.analytics.fraud_analytics import AnalyticsResult
 
 class AnalyticsReporter:
     """Generate analytics reports in HTML and JSON formats."""
-    
-    def __init__(self, results: dict[str, AnalyticsResult], name: str = "fraud_analytics"):
+
+    def __init__(
+        self, results: dict[str, AnalyticsResult], name: str = "fraud_analytics"
+    ):
         self.results = results
         self.name = name
         self.generated_at = datetime.now().isoformat()
-    
+
     def to_json(self, output_path: Optional[Path] = None) -> str:
         """Export analytics as JSON."""
         report_data = {
             "report_name": self.name,
             "generated_at": self.generated_at,
-            "sections": {}
+            "sections": {},
         }
-        
+
         for key, result in self.results.items():
             report_data["sections"][key] = {
                 "name": result.name,
                 "summary": result.summary,
                 "data": result.data,
-                "actionable_items": result.actionable_items
+                "actionable_items": result.actionable_items,
             }
-        
+
         json_str = json.dumps(report_data, indent=2, default=str)
-        
+
         if output_path:
             Path(output_path).parent.mkdir(parents=True, exist_ok=True)
             with open(output_path, "w") as f:
                 f.write(json_str)
             logger.info(f"Saved analytics JSON report to {output_path}")
-        
+
         return json_str
-    
+
     def to_html(self, output_path: Optional[Path] = None) -> str:
         """Export analytics as clean, professional HTML report."""
-        
+
         # Get data
-        exec_data = self.results.get("executive_summary", AnalyticsResult("", [], "")).data
+        exec_data = self.results.get(
+            "executive_summary", AnalyticsResult("", [], "")
+        ).data
         exec_data = exec_data[0] if exec_data else {}
-        
-        category_data = self.results.get("fraud_by_category", AnalyticsResult("", [], "")).data
-        merchant_data = self.results.get("fraud_by_merchant", AnalyticsResult("", [], "")).data
-        patterns_data = self.results.get("high_risk_patterns", AnalyticsResult("", [], "")).data
+
+        category_data = self.results.get(
+            "fraud_by_category", AnalyticsResult("", [], "")
+        ).data
+        merchant_data = self.results.get(
+            "fraud_by_merchant", AnalyticsResult("", [], "")
+        ).data
+        patterns_data = self.results.get(
+            "high_risk_patterns", AnalyticsResult("", [], "")
+        ).data
         anomaly_data = self.results.get("anomalies", AnalyticsResult("", [], "")).data
         anomaly_data = anomaly_data[0] if anomaly_data else {}
         time_data = self.results.get("time_trends", AnalyticsResult("", [], "")).data
         time_data = time_data[0] if time_data else {}
-        
+
         # Chart data
         category_labels = [c.get("category", "") for c in category_data]
         category_rates = [c.get("fraud_rate_percent", 0) for c in category_data]
         category_amounts = [c.get("fraud_amount", 0) for c in category_data]
-        
+
         hourly = time_data.get("hourly_distribution", [])
-        hourly_labels = [h.get('hour', 0) for h in hourly]
+        hourly_labels = [h.get("hour", 0) for h in hourly]
         hourly_rates = [h.get("fraud_rate", 0) for h in hourly]
-        
+
         daily = time_data.get("daily_distribution", [])
         daily_labels = [d.get("day", "") for d in daily]
         daily_rates = [d.get("fraud_rate", 0) for d in daily]
-        
+
         # Metrics
         fraud_rate = exec_data.get("fraud_rate_percent", 0)
         fraud_count = exec_data.get("fraud_transactions", 0)
@@ -82,12 +92,12 @@ class AnalyticsReporter:
         fraud_amount = exec_data.get("fraud_amount", 0)
         avg_fraud = exec_data.get("avg_fraud_transaction", 0)
         avg_legit = exec_data.get("avg_legitimate_transaction", 1)
-        
+
         # Get actionable items
         all_actions = []
         for result in self.results.values():
             all_actions.extend(result.actionable_items)
-        
+
         html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -673,11 +683,11 @@ class AnalyticsReporter:
     </script>
 </body>
 </html>"""
-        
+
         if output_path:
             Path(output_path).parent.mkdir(parents=True, exist_ok=True)
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(html)
             logger.info(f"Saved analytics HTML report to {output_path}")
-        
+
         return html

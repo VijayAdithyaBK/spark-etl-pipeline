@@ -796,3 +796,78 @@ FRAUD DISTRIBUTION:
 2026-01-01 17:39:43 | INFO | __main__ | NOTE: Parquet output skipped (requires winutils.exe on Windows)
 2026-01-01 17:39:43 | INFO | __main__ |       The data was successfully processed and validated!
 2026-01-01 17:39:47 | INFO | __main__ | Spark session stopped
+2026-01-04 00:11:02 | INFO | src.utils.logging_config | Logging configured: level=INFO
+2026-01-04 00:11:02 | INFO | __main__ | ============================================================
+2026-01-04 00:11:02 | INFO | __main__ | Spark ETL Pipeline - Financial Transaction Processing
+2026-01-04 00:11:02 | INFO | __main__ | ============================================================
+2026-01-04 00:11:02 | INFO | __main__ | Checking for dataset...
+2026-01-04 00:11:02 | INFO | __main__ | Downloading Credit Card Fraud Detection dataset from Kaggle...
+2026-01-04 00:11:03 | INFO | __main__ | Dataset downloaded to: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1
+2026-01-04 00:11:03 | INFO | __main__ | Using dataset: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-04 00:11:03 | INFO | src.core.context_managers | Starting: spark_session
+2026-01-04 00:11:03 | INFO | src.spark.session | SparkSessionFactory initialized
+2026-01-04 00:11:08 | INFO | src.spark.session | Created Spark session: FraudDetectionETL (version: 3.5.7)
+2026-01-04 00:11:08 | INFO | src.core.context_managers | Completed: spark_session in 4.4346s
+2026-01-04 00:11:08 | INFO | src.core.context_managers | Starting: extraction
+2026-01-04 00:11:08 | INFO | __main__ | Phase 1: EXTRACTION
+2026-01-04 00:11:08 | INFO | src.etl.extractors | Extracting CSV from: C:\Users\vijay\.cache\kagglehub\datasets\kartik2112\fraud-detection\versions\1\fraudTest.csv
+2026-01-04 00:11:15 | INFO | src.etl.extractors | Extracted 555719 rows with 23 columns
+2026-01-04 00:11:15 | INFO | __main__ | Extracted 555719 records with 23 columns
+2026-01-04 00:11:15 | INFO | __main__ | Columns: ['_c0', 'trans_date_trans_time', 'cc_num', 'merchant', 'category', 'amt', 'first', 'last', 'gender', 'street']...
+2026-01-04 00:11:15 | INFO | src.core.context_managers | Completed: extraction in 7.2950s
+2026-01-04 00:11:15 | INFO | src.core.context_managers | Starting: transformation
+2026-01-04 00:11:15 | INFO | __main__ | Phase 2: TRANSFORMATION
+2026-01-04 00:11:15 | INFO | src.etl.transformers | Executed 2 transformations
+2026-01-04 00:11:15 | INFO | __main__ | Transformation complete. Columns: 25
+2026-01-04 00:11:15 | INFO | __main__ | Transformations applied: ['cleansing', 'amount_features']
+2026-01-04 00:11:15 | INFO | src.core.context_managers | Completed: transformation in 0.0816s
+2026-01-04 00:11:15 | INFO | src.core.context_managers | Starting: feature_engineering
+2026-01-04 00:11:15 | INFO | __main__ | Phase 2.5: FEATURE ENGINEERING
+2026-01-04 00:11:15 | INFO | src.features.engineering | Starting feature engineering...
+2026-01-04 00:11:15 | INFO | src.features.engineering | Adding time features...
+2026-01-04 00:11:15 | INFO | src.features.engineering | Adding amount features...
+2026-01-04 00:11:25 | INFO | src.features.engineering | Adding velocity features...
+2026-01-04 00:11:26 | INFO | src.features.engineering | Adding merchant risk features...
+2026-01-04 00:11:26 | INFO | src.features.engineering | Feature engineering complete. Added 26 features.
+2026-01-04 00:11:26 | INFO | __main__ | Added 26 engineered features
+2026-01-04 00:11:26 | INFO | src.core.context_managers | Completed: feature_engineering in 10.6345s
+2026-01-04 00:11:26 | INFO | src.core.context_managers | Starting: quality_validation
+2026-01-04 00:11:26 | INFO | __main__ | Phase 3: DATA QUALITY VALIDATION
+2026-01-04 00:11:42 | WARNING | __main__ | Some quality checks FAILED ✗
+2026-01-04 00:13:52 | INFO | src.quality.reports | Saved JSON report to data\processed\quality_report.json
+2026-01-04 00:13:52 | INFO | src.quality.reports | Saved HTML report to data\processed\quality_report.html
+2026-01-04 00:13:52 | INFO | src.core.context_managers | Completed: quality_validation in 146.3896s
+2026-01-04 00:13:52 | INFO | src.core.context_managers | Starting: analytics
+2026-01-04 00:13:52 | INFO | __main__ | Phase 4: FRAUD ANALYTICS
+2026-01-04 00:13:52 | INFO | src.analytics.fraud_analytics | Running comprehensive fraud analytics...
+2026-01-04 00:15:29 | INFO | src.analytics.fraud_analytics | Completed 6 analytics modules
+2026-01-04 00:15:29 | INFO | src.analytics.reports | Saved analytics JSON report to data\processed\analytics_report.json
+2026-01-04 00:15:29 | INFO | src.analytics.reports | Saved analytics HTML report to data\processed\analytics_report.html
+2026-01-04 00:15:29 | INFO | __main__ | Analytics reports generated ✓
+2026-01-04 00:15:29 | INFO | __main__ | Key Finding: Detected 2,145 fraudulent transactions (0.39%) totaling $1,133,324.68
+2026-01-04 00:15:29 | INFO | __main__ |   ⚠️ Fraudulent transactions avg $528.36 - 7.8x higher than legitimate
+2026-01-04 00:15:29 | INFO | src.core.context_managers | Completed: analytics in 96.4075s
+2026-01-04 00:15:29 | INFO | __main__ | Phase 5: RESULTS
+2026-01-04 00:15:29 | INFO | __main__ | Sample processed records:
+2026-01-04 00:15:42 | INFO | __main__ | ============================================================
+2026-01-04 00:15:42 | INFO | __main__ | TRANSACTION STATISTICS:
+2026-01-04 00:15:42 | INFO | __main__ |   Total Transactions: 555,719
+2026-01-04 00:15:42 | INFO | __main__ |   Total Amount: $38,562,903.11
+2026-01-04 00:15:42 | INFO | __main__ |   Average Amount: $69.39
+2026-01-04 00:15:42 | INFO | __main__ |   Max Amount: $22,768.11
+2026-01-04 00:15:42 | INFO | __main__ |   Min Amount: $1.00
+2026-01-04 00:16:00 | INFO | __main__ | 
+FRAUD DISTRIBUTION:
+2026-01-04 00:16:01 | INFO | __main__ |   Fraud: 2,145
+2026-01-04 00:16:01 | INFO | __main__ |   Legitimate: 553,574
+2026-01-04 00:16:01 | INFO | __main__ | ============================================================
+2026-01-04 00:16:01 | INFO | __main__ | PIPELINE COMPLETED SUCCESSFULLY ✓
+2026-01-04 00:16:01 | INFO | __main__ | ============================================================
+2026-01-04 00:16:01 | INFO | __main__ | Records processed: 555,719
+2026-01-04 00:16:01 | INFO | __main__ | Quality reports saved to: data\processed
+2026-01-04 00:16:01 | INFO | __main__ | Analytics reports saved to: data\processed
+2026-01-04 00:16:01 | INFO | __main__ | 
+2026-01-04 00:16:01 | INFO | __main__ | View analytics_report.html for detailed fraud insights!
+2026-01-04 00:16:01 | INFO | __main__ | NOTE: Parquet output skipped (requires winutils.exe on Windows)
+2026-01-04 00:16:01 | INFO | __main__ |       The data was successfully processed and validated!
+2026-01-04 00:16:02 | INFO | __main__ | Spark session stopped

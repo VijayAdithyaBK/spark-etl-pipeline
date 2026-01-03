@@ -15,19 +15,31 @@ from pydantic import BaseModel, Field, field_validator
 
 class SparkConfig(BaseModel):
     """Spark-specific configuration settings."""
-    
-    app_name: str = Field(default="SparkETLPipeline", description="Spark application name")
+
+    app_name: str = Field(
+        default="SparkETLPipeline", description="Spark application name"
+    )
     master: str = Field(default="local[*]", description="Spark master URL")
     driver_memory: str = Field(default="4g", description="Driver memory allocation")
     executor_memory: str = Field(default="4g", description="Executor memory allocation")
-    shuffle_partitions: int = Field(default=200, ge=1, description="Number of shuffle partitions")
-    default_parallelism: int = Field(default=8, ge=1, description="Default parallelism level")
-    warehouse_dir: str = Field(default="spark-warehouse", description="Spark SQL warehouse directory")
-    
+    shuffle_partitions: int = Field(
+        default=200, ge=1, description="Number of shuffle partitions"
+    )
+    default_parallelism: int = Field(
+        default=8, ge=1, description="Default parallelism level"
+    )
+    warehouse_dir: str = Field(
+        default="spark-warehouse", description="Spark SQL warehouse directory"
+    )
+
     # Performance tuning
-    adaptive_execution_enabled: bool = Field(default=True, description="Enable adaptive query execution")
-    broadcast_threshold: int = Field(default=10485760, description="Broadcast join threshold in bytes")
-    
+    adaptive_execution_enabled: bool = Field(
+        default=True, description="Enable adaptive query execution"
+    )
+    broadcast_threshold: int = Field(
+        default=10485760, description="Broadcast join threshold in bytes"
+    )
+
     @field_validator("driver_memory", "executor_memory")
     @classmethod
     def validate_memory(cls, v: str) -> str:
@@ -43,20 +55,27 @@ class SparkConfig(BaseModel):
 
 class DataConfig(BaseModel):
     """Data paths and format configuration."""
-    
+
     base_path: Path = Field(default=Path("data"), description="Base data directory")
     raw_path: Path = Field(default=Path("data/raw"), description="Raw data directory")
-    processed_path: Path = Field(default=Path("data/processed"), description="Processed data directory")
-    schema_path: Path = Field(default=Path("data/schema"), description="Schema definitions directory")
-    
-    input_format: Literal["csv", "parquet", "json"] = Field(default="csv", description="Input data format")
-    output_format: Literal["parquet", "csv", "json"] = Field(default="parquet", description="Output data format")
-    
-    partition_columns: list[str] = Field(
-        default=["year", "month"],
-        description="Columns to partition output by"
+    processed_path: Path = Field(
+        default=Path("data/processed"), description="Processed data directory"
     )
-    
+    schema_path: Path = Field(
+        default=Path("data/schema"), description="Schema definitions directory"
+    )
+
+    input_format: Literal["csv", "parquet", "json"] = Field(
+        default="csv", description="Input data format"
+    )
+    output_format: Literal["parquet", "csv", "json"] = Field(
+        default="parquet", description="Output data format"
+    )
+
+    partition_columns: list[str] = Field(
+        default=["year", "month"], description="Columns to partition output by"
+    )
+
     @field_validator("raw_path", "processed_path", "schema_path", mode="before")
     @classmethod
     def resolve_paths(cls, v: Any) -> Path:
@@ -66,28 +85,37 @@ class DataConfig(BaseModel):
 
 class LoggingConfig(BaseModel):
     """Logging configuration settings."""
-    
+
     level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = Field(
-        default="INFO",
-        description="Logging level"
+        default="INFO", description="Logging level"
     )
     format: str = Field(
         default="{time:YYYY-MM-DD HH:mm:ss} | {level} | {name} | {message}",
-        description="Log message format"
+        description="Log message format",
     )
     rotation: str = Field(default="10 MB", description="Log rotation size")
     retention: str = Field(default="7 days", description="Log retention period")
-    log_file: Optional[Path] = Field(default=Path("logs/etl_pipeline.log"), description="Log file path")
+    log_file: Optional[Path] = Field(
+        default=Path("logs/etl_pipeline.log"), description="Log file path"
+    )
 
 
 class QualityConfig(BaseModel):
     """Data quality validation configuration."""
-    
-    null_threshold: float = Field(default=0.05, ge=0, le=1, description="Maximum allowed null ratio")
-    duplicate_threshold: float = Field(default=0.01, ge=0, le=1, description="Maximum allowed duplicate ratio")
-    enable_strict_mode: bool = Field(default=False, description="Fail on any quality issue")
+
+    null_threshold: float = Field(
+        default=0.05, ge=0, le=1, description="Maximum allowed null ratio"
+    )
+    duplicate_threshold: float = Field(
+        default=0.01, ge=0, le=1, description="Maximum allowed duplicate ratio"
+    )
+    enable_strict_mode: bool = Field(
+        default=False, description="Fail on any quality issue"
+    )
     generate_reports: bool = Field(default=True, description="Generate quality reports")
-    report_format: Literal["html", "json", "both"] = Field(default="both", description="Report output format")
+    report_format: Literal["html", "json", "both"] = Field(
+        default="both", description="Report output format"
+    )
 
 
 class Settings(BaseModel):
@@ -95,23 +123,23 @@ class Settings(BaseModel):
     Main configuration settings class.
     Aggregates all configuration sections into a single validated model.
     """
-    
+
     environment: Literal["development", "staging", "production"] = Field(
-        default="development",
-        description="Application environment"
+        default="development", description="Application environment"
     )
     debug: bool = Field(default=True, description="Enable debug mode")
-    
+
     spark: SparkConfig = Field(default_factory=SparkConfig)
     data: DataConfig = Field(default_factory=DataConfig)
     logging: LoggingConfig = Field(default_factory=LoggingConfig)
     quality: QualityConfig = Field(default_factory=QualityConfig)
-    
+
     class Config:
         """Pydantic configuration."""
+
         validate_assignment = True
         extra = "forbid"
-    
+
     @classmethod
     def from_env(cls) -> "Settings":
         """
@@ -120,7 +148,7 @@ class Settings(BaseModel):
         """
         env = os.getenv("ENV", "development")
         debug = os.getenv("DEBUG", "true").lower() == "true"
-        
+
         return cls(
             environment=env,  # type: ignore
             debug=debug,
@@ -130,11 +158,11 @@ class Settings(BaseModel):
                 driver_memory=os.getenv("SPARK_DRIVER_MEMORY", "4g"),
             ),
         )
-    
+
     def get_spark_configs(self) -> dict[str, str]:
         """
         Get Spark configuration as a dictionary for SparkSession builder.
-        
+
         Returns:
             Dictionary of Spark configuration key-value pairs.
         """
@@ -146,7 +174,9 @@ class Settings(BaseModel):
             "spark.sql.shuffle.partitions": str(self.spark.shuffle_partitions),
             "spark.default.parallelism": str(self.spark.default_parallelism),
             "spark.sql.warehouse.dir": self.spark.warehouse_dir,
-            "spark.sql.adaptive.enabled": str(self.spark.adaptive_execution_enabled).lower(),
+            "spark.sql.adaptive.enabled": str(
+                self.spark.adaptive_execution_enabled
+            ).lower(),
             "spark.sql.autoBroadcastJoinThreshold": str(self.spark.broadcast_threshold),
         }
 
@@ -155,10 +185,10 @@ class Settings(BaseModel):
 def get_settings() -> Settings:
     """
     Get cached settings instance (Singleton pattern via lru_cache).
-    
+
     This ensures only one Settings instance is created and reused,
     providing a thread-safe singleton implementation.
-    
+
     Returns:
         The application settings instance.
     """

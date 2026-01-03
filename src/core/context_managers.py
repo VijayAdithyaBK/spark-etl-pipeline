@@ -24,21 +24,21 @@ T = TypeVar("T")
 class TimerContext:
     """
     Context manager for timing code blocks.
-    
+
     Demonstrates the basic context manager protocol with
     __enter__ and __exit__ methods.
-    
+
     Example:
         >>> with TimerContext("data_processing") as timer:
         ...     # Long-running operation
         ...     pass
         >>> print(f"Elapsed: {timer.elapsed:.2f}s")
     """
-    
+
     def __init__(self, name: str = "operation", log_level: str = "info"):
         """
         Initialize timer context.
-        
+
         Args:
             name: Name of the operation being timed.
             log_level: Logging level for output.
@@ -48,13 +48,13 @@ class TimerContext:
         self.start_time: float = 0
         self.end_time: float = 0
         self._log_func = getattr(logger, log_level.lower(), logger.info)
-    
+
     def __enter__(self) -> "TimerContext":
         """Enter context and start timer."""
         self.start_time = time.perf_counter()
         self._log_func(f"Starting: {self.name}")
         return self
-    
+
     def __exit__(
         self,
         exc_type: Optional[type[BaseException]],
@@ -63,16 +63,14 @@ class TimerContext:
     ) -> bool:
         """Exit context and stop timer."""
         self.end_time = time.perf_counter()
-        
+
         if exc_type is not None:
-            logger.error(
-                f"Failed: {self.name} after {self.elapsed:.4f}s - {exc_val}"
-            )
+            logger.error(f"Failed: {self.name} after {self.elapsed:.4f}s - {exc_val}")
             return False  # Re-raise exception
-        
+
         self._log_func(f"Completed: {self.name} in {self.elapsed:.4f}s")
         return False
-    
+
     @property
     def elapsed(self) -> float:
         """Get elapsed time in seconds."""
@@ -84,17 +82,17 @@ class TimerContext:
 class SparkSessionContext:
     """
     Context manager for Spark session lifecycle.
-    
+
     Ensures proper creation and cleanup of Spark sessions,
     preventing resource leaks.
-    
+
     Example:
         >>> with SparkSessionContext("MyApp") as spark:
         ...     df = spark.read.csv("data.csv")
         ...     df.show()
         # Session automatically stopped on exit
     """
-    
+
     def __init__(
         self,
         app_name: str = "SparkApp",
@@ -104,7 +102,7 @@ class SparkSessionContext:
     ):
         """
         Initialize Spark session context.
-        
+
         Args:
             app_name: Application name.
             master: Spark master URL.
@@ -116,40 +114,36 @@ class SparkSessionContext:
         self.config = config or {}
         self.enable_hive = enable_hive
         self._session: Optional[SparkSession] = None
-    
+
     def __enter__(self) -> SparkSession:
         """Create and return Spark session."""
         logger.info(f"Creating Spark session: {self.app_name}")
-        
-        builder = (
-            SparkSession.builder
-            .appName(self.app_name)
-            .master(self.master)
-        )
-        
+
+        builder = SparkSession.builder.appName(self.app_name).master(self.master)
+
         # Apply configuration
         for key, value in self.config.items():
             builder = builder.config(key, value)
-        
+
         # Default configurations for local mode
         builder = builder.config("spark.sql.adaptive.enabled", "true")
         builder = builder.config("spark.driver.memory", "4g")
-        
+
         if self.enable_hive:
             builder = builder.enableHiveSupport()
-        
+
         self._session = builder.getOrCreate()
-        
+
         # Set log level
         self._session.sparkContext.setLogLevel("WARN")
-        
+
         logger.info(
             f"Spark session created: {self._session.version} "
             f"(master: {self.master})"
         )
-        
+
         return self._session
-    
+
     def __exit__(
         self,
         exc_type: Optional[type[BaseException]],
@@ -161,25 +155,25 @@ class SparkSessionContext:
             logger.info("Stopping Spark session")
             self._session.stop()
             self._session = None
-        
+
         if exc_type:
             logger.error(f"Spark session exited with error: {exc_val}")
-        
+
         return False
 
 
 class TempTableContext:
     """
     Context manager for temporary Spark SQL tables.
-    
+
     Automatically registers a DataFrame as a temp table and
     unregisters it when exiting the context.
-    
+
     Example:
         >>> with TempTableContext(df, "transactions") as table_name:
         ...     result = spark.sql(f"SELECT * FROM {table_name}")
     """
-    
+
     def __init__(
         self,
         spark: SparkSession,
@@ -189,7 +183,7 @@ class TempTableContext:
     ):
         """
         Initialize temp table context.
-        
+
         Args:
             spark: Active Spark session.
             df: DataFrame to register.
@@ -200,17 +194,17 @@ class TempTableContext:
         self.df = df
         self.table_name = table_name
         self.cache = cache
-    
+
     def __enter__(self) -> str:
         """Register DataFrame as temp table."""
         if self.cache:
             self.df.cache()
-        
+
         self.df.createOrReplaceTempView(self.table_name)
         logger.debug(f"Created temp table: {self.table_name}")
-        
+
         return self.table_name
-    
+
     def __exit__(
         self,
         exc_type: Optional[type[BaseException]],
@@ -223,10 +217,10 @@ class TempTableContext:
             logger.debug(f"Dropped temp table: {self.table_name}")
         except Exception as e:
             logger.warning(f"Failed to drop temp table {self.table_name}: {e}")
-        
+
         if self.cache:
             self.df.unpersist()
-        
+
         return False
 
 
@@ -238,18 +232,18 @@ def resource_manager(
 ) -> Generator[T, None, None]:
     """
     Generic context manager factory for resource management.
-    
+
     Demonstrates the contextlib.contextmanager decorator pattern
     for creating context managers from generator functions.
-    
+
     Args:
         acquire: Function to acquire the resource.
         release: Function to release the resource.
         name: Resource name for logging.
-        
+
     Yields:
         The acquired resource.
-        
+
     Example:
         >>> def open_connection():
         ...     return Database.connect()
@@ -279,26 +273,26 @@ def spark_checkpoint_context(
 ) -> Generator[None, None, None]:
     """
     Context manager for Spark checkpoint directory.
-    
+
     Sets up and cleans up checkpoint directory for operations
     that require checkpointing (e.g., breaking lineage).
-    
+
     Args:
         spark: Active Spark session.
         checkpoint_dir: Directory for checkpoints.
-        
+
     Yields:
         None (checkpoint is configured in Spark context).
     """
     from pathlib import Path
     import shutil
-    
+
     path = Path(checkpoint_dir)
     path.mkdir(parents=True, exist_ok=True)
-    
+
     spark.sparkContext.setCheckpointDir(checkpoint_dir)
     logger.debug(f"Set checkpoint directory: {checkpoint_dir}")
-    
+
     try:
         yield
     finally:
@@ -315,23 +309,23 @@ def spark_checkpoint_context(
 def suppress_spark_logs() -> Generator[None, None, None]:
     """
     Context manager to temporarily suppress Spark logging.
-    
+
     Useful for clean output during operations that generate
     excessive Spark logs.
-    
+
     Yields:
         None (logs are suppressed).
     """
     import logging
-    
+
     # Get loggers
     spark_logger = logging.getLogger("py4j")
     spark_java_logger = logging.getLogger("pyspark")
-    
+
     # Store original levels
     original_py4j = spark_logger.level
     original_pyspark = spark_java_logger.level
-    
+
     try:
         spark_logger.setLevel(logging.ERROR)
         spark_java_logger.setLevel(logging.ERROR)
@@ -344,17 +338,17 @@ def suppress_spark_logs() -> Generator[None, None, None]:
 class TransactionContext:
     """
     Context manager for transactional operations.
-    
+
     Demonstrates rollback capability for operations that
     need atomicity guarantees.
     """
-    
+
     def __init__(self, name: str = "transaction"):
         """Initialize transaction context."""
         self.name = name
         self._operations: list[tuple[Callable, Callable]] = []
         self._committed = False
-    
+
     def add_operation(
         self,
         execute: Callable[[], Any],
@@ -362,12 +356,12 @@ class TransactionContext:
     ) -> None:
         """Add an operation with its rollback function."""
         self._operations.append((execute, rollback))
-    
+
     def __enter__(self) -> "TransactionContext":
         """Enter transaction context."""
         logger.info(f"Starting transaction: {self.name}")
         return self
-    
+
     def __exit__(
         self,
         exc_type: Optional[type[BaseException]],
@@ -379,19 +373,19 @@ class TransactionContext:
             logger.warning(f"Rolling back transaction: {self.name}")
             self._rollback()
             return False
-        
+
         if not self._committed:
             self._commit()
-        
+
         return False
-    
+
     def _commit(self) -> None:
         """Execute all operations."""
         for execute, _ in self._operations:
             execute()
         self._committed = True
         logger.info(f"Committed transaction: {self.name}")
-    
+
     def _rollback(self) -> None:
         """Execute rollback for completed operations."""
         for _, rollback in reversed(self._operations):
@@ -407,14 +401,14 @@ if __name__ == "__main__":
     with TimerContext("test_operation") as timer:
         time.sleep(0.1)
     print(f"Timer elapsed: {timer.elapsed:.4f}s")
-    
+
     # Test resource_manager
     def acquire():
         print("Acquiring resource")
         return {"data": "value"}
-    
+
     def release(r):
         print(f"Releasing resource: {r}")
-    
+
     with resource_manager(acquire, release, "test_resource") as res:
         print(f"Using resource: {res}")
