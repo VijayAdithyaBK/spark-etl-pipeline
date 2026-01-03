@@ -15,7 +15,7 @@ import csv
 import random
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Any, Generator, Generic, Iterable, Iterator, Optional, TypeVar
+from typing import Any, Callable, Generator, Generic, Iterable, Iterator, Optional, TypeVar
 
 from loguru import logger
 from pyspark.sql import DataFrame
@@ -431,7 +431,7 @@ def pipeline_stages(
         >>> list(transform(["  hello world  ", "  goodbye  "]))
         ['HELLO_WORLD', 'GOODBYE']
     """
-    from typing import Callable
+
     
     def apply_pipeline(data: Iterable[T]) -> Generator[T, None, None]:
         for item in data:
